@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Buenard:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --banner-color: #07a4b5;
+  --banner-color_dark: #038796;
+  --banner-hover-color: #028593;
+  --secondary-light: #ecf3f4;
+  --primary-dark: #969393;
+  --secondary-linear-gradient: linear-gradient(
+    90deg,
+    rgba(12, 12, 12, 0.7) 0%,
+    rgba(11, 10, 10, 0.48) 50.4%,
+    rgba(162, 162, 162, 0.329) 100%
+  );
+  --big-font-size: 70px;
+  --medium-font-size: 48px;
+  --sm2-font-size: 20px;
+  --h5-size: 24px;
+  --sm-font-size: 18px;
+  --fontColor-primary-light: #f9fcfd;
+  --fontColor-primary-dark: #504e4e;
+  --text-color: #ffcb89;
+  --border-radius-sm: 8px;
+  --btn-text-color: #f9fcfd;
+  --general-font-family: "Buenard", serif;
+}
+
+.formsubsty {
+  margin-top: 14rem;
+}
+
+.formsubsty article {
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 8px 0 rgba(56, 55, 55, 0.2),
+    0 6px 20px 0 rgba(180, 179, 179, 0.19);
+  margin: 2rem auto;
+  border-radius: 5px;
+  width: 30rem;
+}
+
+.formsubsty .logHeading {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.formsubsty .logHeading h1 {
+  font-size: 18px;
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  text-align: center;
+}
+.formsubsty .logHeading p {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Poppins", serif;
+  text-align: center;
+}
+
+.formsubsty form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.formsubsty label {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: "Poppins", serif;
+}
+
+.formsubsty form input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid gainsboro;
+  color: var(--fontColor-primary-dark);
+  transition: background-color 0.3s ease;
+  outline-color: transparent;
+}
+
+.formsubsty .inputhlos {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
+.formsubsty .inputhlos aside {
+  display: flex;
+  border: 1px solid gainsboro;
+  width: 100%;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+.formsubsty .inputhlos aside input {
+  flex: 1;
+  width: 24rem;
+  border: none !important;
+}
+
+.formsubsty .inputhlos aside button {
+  border: none;
+  background-color: transparent;
+  width: 0;
+}
+
+.forgotbtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  border: 1px solid var(--banner-color);
+  color: var(--banner-color);
+  font-weight: 400;
+  font-family: "Poppins", serif;
+}
+
+.submitform {
+  padding: 1rem 0;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--banner-color);
+  color: #fff;
+  margin-top: 2rem;
+  font-family: "Poppins", serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+.submitform:hover {
+  background-color: var(--banner-hover-color);
+}
+
+.passforsty {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem 0;
+}
+.passforsty p {
+  font-size: 1.1rem;
+  font-family: "Poppins", serif;
+}
+.passforsty b {
+  font-size: 1.2rem;
+  font-family: "Poppins", serif;
+}
+
+.passforsty form button {
+  padding: 1.2rem 0;
+  border: none;
+
+  border-radius: 0.4rem;
+  background-color: var(--fontColor-primary-dark);
+  color: #fff;
+}

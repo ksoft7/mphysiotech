@@ -1,0 +1,321 @@
+.footerup {
+  background-color: var(--banner-color);
+  padding: 1rem 0;
+  padding-top: 14rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  position: relative;
+  margin-top: 50rem;
+  width: 100%;
+}
+
+.footer-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  position: absolute;
+  top: -40rem;
+}
+
+.footer-cards .footer_card2 {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  background-color: var(--secondary-light);
+  width: 500px;
+  padding: 4rem 3.5rem;
+  border-radius: 5px;
+}
+
+.footer-cards .footer_card1 {
+  background-color: var(--fontColor-primary-dark);
+  width: 500px;
+  height: 497px;
+  border-radius: 5px;
+}
+
+.footer-cards .footer_card2 h3 {
+  font-family: var(--general-font-family);
+  font-weight: 400;
+  font-size: var(--medium-font-size);
+  color: var(--banner-color);
+}
+
+.footer-cards .footer_card2 h6 {
+  color: var(--text-color);
+  font-family: var(--general-font-family);
+  font-size: var(--sm2-font-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+.footer-cards .footer_card2 .text-wd {
+  width: 424px;
+  text-align: center;
+}
+
+.footer-cards .footer_card2 h4 {
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  color: var(--banner-color);
+  font-size: var(--sm2-font-size);
+  font-weight: 400;
+  line-height: 31.22px;
+  text-align: left;
+}
+
+.footer-cards .footer_card2 p {
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--fontColor-primary-dark);
+  text-align: left;
+}
+
+.footer-cards .footer_card2 div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.footer-cards .footer_card2 .icon {
+  width: 36.01px;
+  height: 51.44px;
+  color: var(--banner-color);
+}
+
+footer .footer-contents {
+  display: flex;
+  justify-content: space-between;
+  gap: 6rem;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+footer .footer-contents div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+footer .footer-contents div img {
+  width: 200px;
+  height: 50px;
+}
+
+footer .footer-contents div p {
+  width: 327px;
+  font-family: var(--general-font-family);
+  font-size: 1.5rem;
+  color: var(--fontColor-primary-light);
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+}
+
+footer .footer-contents div h5 {
+  font-family: var(--general-font-family);
+  font-size: 1.9rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 31.22px;
+  text-align: left;
+}
+
+footer .footer-contents span {
+  display: flex;
+  gap: 2.7rem;
+  align-items: center;
+}
+
+footer .footer-contents span .icon {
+  width: 15.94px;
+  height: 16.53px;
+  color: var(--fontColor-primary-light);
+  cursor: pointer;
+}
+
+footer .footer-contents ul {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.3rem;
+  color: #fff;
+}
+
+footer .footer-contents h4 {
+  font-family: var(--general-font-family);
+  font-size: 20px;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 46.84px;
+  text-align: left;
+  color: #fff;
+}
+
+footer .footer-contents ul li {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--general-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23.42px;
+  align-items: center;
+  white-space: nowrap;
+}
+footer .footer-contents ul .icon {
+  width: 8px;
+  height: 10.21px;
+  color: var(--fontColor-primary-light);
+}
+
+footer .footer-contents ul li a {
+  color: #fff;
+}
+
+footer .footer-contents form {
+  gap: 1rem;
+  width: 331px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-right: 3rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.4px solid #fff;
+}
+
+footer .footer-contents form .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--fontColor-primary-light);
+}
+footer .footer-contents form button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+footer .footer-contents form input {
+  flex: 1;
+  height: 100%;
+  padding: 0 2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+footer .footer-contents form input::placeholder {
+  font-family: var(--general-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: var(--fontColor-primary-light);
+}
+
+footer .copy_right {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+footer .copy_right p {
+  font-family: var(--general-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .footerup {
+    margin-top: 100rem;
+  }
+  .footer-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: -90rem;
+    border: 1px solid transparent;
+  }
+}
+
+@media (max-width: 577px) {
+  .footerup {
+    margin-top: 95rem;
+  }
+  .footer-cards {
+    margin-top: 5rem;
+  }
+
+  .footer-cards .footer_card2 {
+    width: 90%;
+  }
+
+  .footer-cards .footer_card1 {
+    background-color: var(--fontColor-primary-dark);
+    width: 90%;
+    margin: 0 auto;
+    height: 400px;
+    border-radius: 5px;
+  }
+
+  .footer-cards .footer_card2 h3 {
+    font-size: 10vw;
+    white-space: nowrap;
+  }
+
+  .footer-cards .footer_card2 h6 {
+    font-size: 3vw;
+  }
+
+  .footer-cards .footer_card2 .text-wd {
+    width: 100%;
+  }
+
+  .footer-cards .footer_card2 h4 {
+    font-size: 4vw;
+  }
+
+  .footer-cards .footer_card2 p {
+    font-size: 3.6vw;
+  }
+
+  .footer-cards .footer_card2 div {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .footer-cards .footer_card2 div p {
+    white-space: nowrap;
+  }
+
+  .footer-cards .footer_card2 .icon {
+    width: 30.01px;
+    height: 40.44px;
+  }
+}
+
+@media (max-width: 426px) {
+  footer .footer-contents form {
+    width: 100%;
+  }
+  footer .footer-contents div p {
+    width: 100%;
+  }
+}

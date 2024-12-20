@@ -1,0 +1,14 @@
+.team_cards_sec {
+  margin: 5rem 0;
+  text-align: center;
+}
+
+.team_cards_sec-card {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.1rem;
+  row-gap: 2rem;
+  width: 92%;
+  justify-content: center;
+  margin: 4rem auto;
+}

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Buenard:wght@400;700&display=swap");
+
+.testimonial_card_sec .headings {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.testimonial_card_sec article {
+  width: 90%;
+  margin: 4rem auto;
+  margin-bottom: 8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.testimonial_card_sec article .tes_card {
+  position: relative;
+  width: 560px;
+  background-color: var(--secondary-light);
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 8rem;
+  border-radius: 8px;
+}
+
+.testimonial_card_sec article .tes_card div {
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial_card_sec article .tes_card p {
+  font-family: "Baskervville", sans-serif;
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 29.74px;
+  text-align: left;
+  width: 300px;
+  color: var(--fontColor-primary-dark);
+}
+
+.testimonial_card_sec article .tes_card h5 {
+  font-family: var(--general-font-family);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31.22px;
+  text-align: left;
+  color: var(--banner-color);
+}
+
+.testimonial_card_sec article .tes_card h6 {
+  font-family: var(--banner-color);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.testimonial_card_sec article .tes_card figure img {
+  width: 205px;
+  height: 100%;
+}
+
+.tes_card .icon {
+  font-size: 50rem;
+  left: -18rem;
+  height: 13rem;
+  color: #07a4b51a;
+  top: 3rem;
+  position: absolute;
+}
+
+@media (max-width: 641px) {
+  .testimonial_card_sec article .tes_card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 0.5rem 2rem;
+    padding-top: 5rem;
+  }
+
+  .testimonial_card_sec article .tes_card p {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .testimonial_card_sec article .tes_card h5 {
+    font-size: 18px;
+  }
+
+  .testimonial_card_sec article .tes_card h6 {
+    font-size: 18px;
+  }
+
+  .testimonial_card_sec article .tes_card figure {
+    margin: 0 auto;
+  }
+
+  .testimonial_card_sec article .tes_card figure img {
+    width: 170px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tes_card .icon {
+    font-size: 40rem;
+    left: -13rem;
+    top: 1rem;
+  }
+}
+
+@media (max-width: 374px) {
+  .tes_card .icon {
+    font-size: 40rem;
+    left: -14rem;
+    top: -1rem;
+  }
+}

@@ -1,0 +1,374 @@
+.form_fill_sec {
+  padding: 15rem 0;
+  background-color: var(--secondary-light);
+}
+
+.form-con {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5rem;
+  align-items: center;
+  row-gap: 3rem;
+}
+
+.form-con article {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  text-align: center;
+}
+
+.form-con article h6 {
+  color: var(--text-color);
+  font-family: var(--general-font-family);
+  font-size: var(--sm2-font-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-con h3 {
+  font-family: var(--general-font-family);
+  font-weight: 400;
+  font-size: var(--medium-font-size);
+  color: var(--banner-color);
+}
+.form-con article .text-wd {
+  width: 424px;
+  text-align: center;
+}
+
+.form-con h4 {
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  color: var(--banner-color);
+  font-size: var(--sm2-font-size);
+  font-weight: 400;
+  line-height: 31.22px;
+  text-align: left;
+}
+
+.form-con p {
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--fontColor-primary-dark);
+  text-align: left;
+}
+
+.form-con article div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.form-con article div .icon {
+  width: 36.01px;
+  height: 51.44px;
+  color: var(--banner-color);
+}
+
+.form-con form {
+  width: 630px;
+  background-color: #fff;
+  border-radius: var(--border-radius-sm);
+  padding: 3rem 4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
+.form-con form div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.form-con form div input {
+  width: 200px;
+  height: 55px;
+  padding: 15px 30px 15px 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--fontColor-primary-dark);
+  outline: none;
+  transition: 0.5s;
+  border-radius: 0.1rem;
+}
+
+.form-con form div input::placeholder,
+.form-con form textarea::placeholder {
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+}
+
+.form-con form input:focus {
+  border-bottom: 1.3px solid var(--banner-color);
+}
+
+.form-con form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--fontColor-primary-dark);
+  outline: none;
+  transition: 0.5s;
+  font-size: 16px;
+  border-radius: 0.1rem;
+  resize: none;
+}
+
+.form-con form textarea:focus {
+  border-bottom: 1.3px solid var(--banner-color);
+}
+
+.form-con form p {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-con form span {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dark_sec {
+  background-color: var(--primary-dark);
+  height: 50vh;
+  width: 100%;
+}
+
+.footer {
+  background-color: var(--banner-color);
+  padding: 2rem 0;
+  padding-top: 12rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+.footer article {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 90%;
+  margin: 4rem auto;
+  flex-wrap: wrap;
+}
+
+.footer article div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.footer article div img {
+  width: 170px;
+  height: 50px;
+}
+
+.footer article div p {
+  width: 327px;
+  font-family: var(--general-font-family);
+  font-size: var(--sm-font-size);
+  color: var(--fontColor-primary-light);
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+}
+
+.footer article div h5 {
+  font-family: var(--general-font-family);
+  font-size: 17px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 31.22px;
+  text-align: left;
+}
+
+.footer article span {
+  display: flex;
+  gap: 2.7rem;
+  align-items: center;
+}
+
+.footer article span .icon {
+  width: 19.94px;
+  height: 17.53px;
+  color: var(--fontColor-primary-light);
+  cursor: pointer;
+}
+
+.footer article ul {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+  color: #fff;
+}
+
+.footer article h4 {
+  font-family: var(--general-font-family);
+  font-size: 23px;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 46.84px;
+  text-align: left;
+  color: #fff;
+}
+
+.footer article ul li {
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--general-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23.42px;
+  align-items: center;
+  white-space: nowrap;
+}
+.footer article ul .icon {
+  width: 10.42px;
+  height: 10.21px;
+  color: var(--fontColor-primary-light);
+}
+
+.footer article ul li a {
+  color: #fff;
+}
+
+.footer article form {
+  gap: 1rem;
+  width: 331px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-right: 3rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.2px solid #fff;
+}
+
+.footer article form .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--fontColor-primary-light);
+}
+.footer article form button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.footer article form input {
+  flex: 1;
+  height: 100%;
+  padding: 0 2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+.footer article form input::placeholder {
+  font-family: var(--general-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: var(--fontColor-primary-light);
+}
+
+.footer .copy_right {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer .copy_right p {
+  font-family: var(--general-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: #fff;
+}
+
+@media (max-width: 1243px) {
+  .form-con {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form-con form div input {
+    width: 250px;
+  }
+}
+@media (max-width: 456px) {
+  .form-con form div input {
+    width: 100%;
+  }
+  .footer article form {
+    width: 100%;
+  }
+  .footer article div p {
+    width: 100%;
+  }
+  .footer article {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .footer article ul li {
+    width: 100%;
+  }
+
+  .form-con article h6 {
+    font-size: 1.6rem;
+  }
+
+  .form-con h3 {
+    font-size: 38px;
+    white-space: nowrap;
+  }
+  .form-con article .text-wd {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-con h4 {
+    font-size: 15px;
+  }
+
+  .form-con p {
+    font-size: 16px;
+  }
+
+  .form-con article div {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .form-con article div .icon {
+    width: 30.01px;
+    height: 41.44px;
+    color: var(--banner-color);
+  }
+  .dark_sec {
+    height: 30vh;
+  }
+}
