@@ -11,12 +11,10 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
 import Logo from "../assets/imgs/logo_img.svg";
-import Header from "../components/reusables/Header";
 
 function Contact() {
   return (
     <>
-      <Header />
       <section className="hero_section">
         <h1>Contact Us</h1>
         <p>
