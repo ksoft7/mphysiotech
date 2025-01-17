@@ -11,7 +11,6 @@ import { FaUserCheck } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import { logout } from "../redux/actions/userActions";
 import { FaCaretDown } from "react-icons/fa";
-import { toast } from "react-toastify";
 import "../styles/Dropdown.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
@@ -199,11 +198,58 @@ function Header() {
                   </div>
                 </article>
               ) : (
-                <button>
-                  <FaUser cursor={"pointer"} />
-                  <ReactLink to={"/login-page"}>Sign in</ReactLink>
-                  <ReactLink to={"/register-page"}>Sign up</ReactLink>
-                </button>
+                <div className="headerCont2">
+                  <button>
+                    <FaUser cursor={"pointer"} />
+                    <ReactLink to={"/login-page"}>Sign in</ReactLink>
+                    <ReactLink to={"/register-page"}>Sign up</ReactLink>
+                  </button>
+                  <div className="menu-container">
+                    <button className="hamburger"></button>
+                    <RxHamburgerMenu
+                      cursor={"pointer"}
+                      onClick={toggleMenu}
+                      size={24}
+                    />
+                    {isOpen && (
+                      <div
+                        className={`menu-content ${
+                          isAnimating ? "slide-out" : "slide-in"
+                        }`}
+                      >
+                        <button className="close-btn" onClick={toggleMenu}>
+                          ✕
+                        </button>
+                        <nav>
+                          <ul>
+                            {Links.map(({ name, route }) => (
+                              <li key={name}>
+                                <ReactLink
+                                  key={name}
+                                  to={route}
+                                  className="nav-link"
+                                >
+                                  <a>{name}</a>
+                                </ReactLink>
+                              </li>
+                            ))}
+                            <li>
+                              <ReactLink to={"/book-an-appointment"}>
+                                <button className="btn-style">
+                                  Appointment
+                                </button>
+                              </ReactLink>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    )}
+
+                    {isOpen && (
+                      <div className="overlay" onClick={toggleMenu}></div>
+                    )}
+                  </div>
+                </div>
               )}
             </div>
 

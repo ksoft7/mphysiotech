@@ -2,10 +2,7 @@ import React from "react";
 import "../App.css";
 import "../styles/home.css";
 import Footer from "../components/reusables/Footer";
-// import Icon1 from "../assests/imgs/about_icon1.svg";
-// import Icon2 from "../assests/images/about_icon2.svg";
 import Cutedoc from "../assets/imgs/cutedoc.jpeg";
-import Signature from "../assets/imgs/signature1.png";
 import VideoPlayer from "../components/VideoPlayer";
 import { FaUserDoctor } from "react-icons/fa6";
 import ProtectIcon from "../assets/imgs/protectIcon.png";
@@ -23,12 +20,15 @@ function Homepage() {
     <>
       <section className="hero_sec">
         <article>
-          <h6>. Welcome to Yourcare</h6>
-          <h1>Trusted Navigation for Better Senior Care</h1>
+          <h6>. Welcome to rehab & recovery</h6>
+          <h1>
+            Your ultimate Solution for Complete recovery and total rejuvenation
+          </h1>
           <p>
-            Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-            laoreet id donec ultrices tincidunt. Condimentum id venenatis a
-            condimentum vitae sapien.
+            Unlock your best health with our expert team! From comprehensive
+            assessments to personalized therapeutic exercises and powerful
+            non-drug pain management solutions, we're here to help you reach
+            your peak potential.
           </p>
           <button className="btn-style">Discover More</button>
         </article>
@@ -37,43 +37,27 @@ function Homepage() {
       <section className="aboutCard">
         <div className="about-contents">
           <article>
-            <h6>. About Us</h6>
-            <h3>Our Story Senior Living with Compassionate Guidance</h3>
+            <h3>Shop Now</h3>
             <p className="about_text">
-              Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-              laoreet id donec ultrices tincidunt.
+              Browse our extensive catalogue of physiotherapy and medical
+              consumables, alongside fitness products. We offer unique,
+              hard-to-find items at competitive prices. Enjoy the convenience of
+              delivery anywhere in Lagos—simply place your order and relax while
+              we bring it to you.
             </p>
-            <div className="iconPar">
-              <div>
-                {/* <img src={Icon1} alt="icon1" /> */}
-                <span>
-                  <h5>About Yourcare</h5>
-                  <p>
-                    Yourcare is dedicated to providing compassionate and
-                    informed support for seniors and their families.
-                  </p>
-                </span>
-              </div>
-              <div>
-                {/* <img src={Icon2} alt="icon2" /> */}
-                <span>
-                  <h5>Our Commitment</h5>
-                  <p>
-                    Yourcare is dedicated to providing compassionate and
-                    informed support for seniors and their families.
-                  </p>
-                </span>
-              </div>
-            </div>
             <span>
-              <button className="btn-style">Learn More</button>
+              <Link to={"/products"}>
+                <button className="btn-style">Visit our store</button>
+              </Link>
             </span>
           </article>
           <form action="#">
             <h3>Book Appointment</h3>
             <p className="formtext">
-              Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-              laoreet id donec ultrices tincidunt.
+              Schedule an appointment with our specialist Musculoskeletal/Sport
+              Physiotherapist, boasting over 9 years of expertise in treating
+              back pain, sports injuries, trauma cases, and post-surgical
+              rehabilitation.
             </p>
             <div>
               <input type="text" placeholder="First Name" />
@@ -100,20 +84,23 @@ function Homepage() {
         <div className="story_contents">
           <article>
             <h6>. Why choose Us</h6>
-            <h1>Our Story Senior Living with Compassionate Guidance</h1>
+            <h1>
+              Comprehensive Pain Management & Specialized Physiotherapy Care
+            </h1>
             <p className="story_text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Rehab & Recovery features a team of seasoned professionals, adept
+              in pain management and specialized physiotherapy care, offering
+              comprehensive solutions tailored to your needs.
             </p>
             <div>
               <figure>
                 <img src={Cutedoc} alt="cutedoc" />
               </figure>
               <span>
-                <img src={Signature} alt="signature" />
-                <h6>Senior Care Consultant</h6>
+                <h6>
+                  <b style={{ color: "#4b413f" }}>Modupe Ola-Ojo</b>
+                </h6>
+                <h6>Lead Therapist</h6>
               </span>
             </div>
           </article>
@@ -122,30 +109,33 @@ function Homepage() {
             <div>
               <FaUserDoctor className="icon" />
               <span>
-                <h5>Expertise and Experience</h5>
+                <h5>Patient centered care</h5>
                 <p>
-                  Yourcare boasts a team of experienced professionals with
-                  expertise in various aspects of senior care.
+                  Each decision at Rehab & Recovery is centered on prioriƟzing
+                  your needs, ensuring a healthcare experience tailored to your
+                  individual needs.
                 </p>
               </span>
             </div>
             <div>
               <img className="iconimg" src={ProtectIcon} alt="protect Icon" />
               <span>
-                <h5>Trusted Guidance</h5>
+                <h5>Excellence</h5>
                 <p>
-                  We prioritize transparency and integrity in all our
-                  interactions with clients and guidance to help clients.
+                  At Rehab & Recovery, we are dedicated to delivering
+                  high-quality care. Our commitment to evidence-based pracƟces
+                  ensures that you receive the best possible care.
                 </p>
               </span>
             </div>
             <div>
               <img className="iconimg" src={ElderlyHome} alt="Early home" />
               <span>
-                <h5>Service to Families</h5>
+                <h5>Respect</h5>
                 <p>
-                  Since its establishment, served over 500 families in selecting
-                  suitable care solutions for their elderly loved ones.
+                  At Rehab & Recovery, we treat our patients like royalty,
+                  ensuring they receive the utmost respect and care they
+                  deserve.
                 </p>
               </span>
             </div>

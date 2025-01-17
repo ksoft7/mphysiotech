@@ -38,9 +38,6 @@ function Cartscreeen() {
     }
   };
 
-  const getHeadingContent = () =>
-    cartItems.length === 1 ? `(1 Item)` : `(${cartItems.length} Items)`;
-
   return (
     <section className="move">
       {loading ? (
@@ -61,7 +58,7 @@ function Cartscreeen() {
           </div>
           <div>
             <Ordersummary />
-            <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
+            <h3>Total Amount: ₦{totalAmount.toFixed(2)}</h3>
             <button className="btn-primary" onClick={handleCheckout}>
               Proceed to Checkout
             </button>

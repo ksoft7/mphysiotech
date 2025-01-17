@@ -67,68 +67,55 @@ function Footer() {
           <h4>How Can Help</h4>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">
-              <Link to={"/"}>Homepage</Link>
-            </a>
+
+            <Link to={"/"}>Homepage</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">
-              <Link to={"/aboutpage"}>About Us</Link>
-            </a>
+
+            <Link to={"/aboutpage"}>About Us</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">Services</a>
+            Services
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">
-              <Link to={"/blog"}>Blog & Article</Link>
-            </a>
+
+            <Link to={"/blog"}>Blog & Article</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">
-              <Link to={"/testimonials"}>Testimonials</Link>
-            </a>
+
+            <Link to={"/testimonials"}>Testimonials</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">
-              <Link to={"/faq"}>FAQ</Link>
-            </a>
+
+            <Link to={"/faq"}>FAQ</Link>
           </li>
         </ul>
         <ul>
           <h4>Services</h4>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">Medical Check-Up</a>
+            Physiotherapy & <br /> Rehabilitation
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">In-Home Heatlh Care</a>
+            Chiropractic
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">Senior Citizen Care</a>
+            Gym facility
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">Residential Care</a>
+            Massage and Sport <br /> massage
           </li>
           <li>
             <FaChevronRight className="icon" />
-            <a href="#">Personalized Care</a>
-          </li>
-          <li>
-            <FaChevronRight className="icon" />
-            <a href="#">End of Life Care</a>
-          </li>
-          <li>
-            <FaChevronRight className="icon" />
-            <a href="#">Nursing Care</a>
+            Pain clinic
           </li>
         </ul>
         <div>

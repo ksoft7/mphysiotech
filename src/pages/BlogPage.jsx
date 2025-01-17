@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/blog_page.css";
 import "../App.css";
 import Footer from "../components/reusables/Footer";
-import Header from "../components/reusables/Header";
 import { IoMdTime } from "react-icons/io";
 import { BiMessageDetail } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -28,7 +27,6 @@ function BlogPage() {
   }
   return (
     <>
-      <Header />
       <section className="hero_section">
         <h1>Blog & Article</h1>
         <p>
@@ -86,114 +84,6 @@ function BlogPage() {
       <Footer />
     </>
   );
-}
-
-//    <div className="blog_card color_bgcard">
-{
-  /* <div className="img_content"></div>
-<div className="blog_text">
-  <h3>
-    Senior Care Technology: Innovations to Enhance Quality of Life
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et.
-  </p>
-  <span>
-    <h4>
-      <IoMdTime className="icon" /> Feburary 30, 2023
-    </h4>
-    <aside></aside>
-    <h4>
-      <BiMessageDetail className="icon" /> 2 comment
-    </h4>
-  </span>
-</div>
-</div>
-<div className="blog_card color_bgcard">
-<div className="img_content"></div>
-<div className="blog_text">
-  <h3>
-    Senior Care Technology: Innovations to Enhance Quality of Life
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et.
-  </p>
-  <span>
-    <h4>
-      <IoMdTime className="icon" /> Feburary 30, 2023
-    </h4>
-    <aside></aside>
-    <h4>
-      <BiMessageDetail className="icon" /> 2 comment
-    </h4>
-  </span>
-</div>
-</div>
-<div className="blog_card color_bgcard">
-<div className="img_content"></div>
-<div className="blog_text">
-  <h3>
-    Senior Care Technology: Innovations to Enhance Quality of Life
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et.
-  </p>
-  <span>
-    <h4>
-      <IoMdTime className="icon" /> Feburary 30, 2023
-    </h4>
-    <aside></aside>
-    <h4>
-      <BiMessageDetail className="icon" /> 2 comment
-    </h4>
-  </span>
-</div>
-</div>
-<div className="blog_card color_bgcard">
-<div className="img_content"></div>
-<div className="blog_text">
-  <h3>
-    Senior Care Technology: Innovations to Enhance Quality of Life
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et.
-  </p>
-  <span>
-    <h4>
-      <IoMdTime className="icon" /> Feburary 30, 2023
-    </h4>
-    <aside></aside>
-    <h4>
-      <BiMessageDetail className="icon" /> 2 comment
-    </h4>
-  </span>
-</div>
-</div>
-<div className="blog_card color_bgcard">
-<div className="img_content"></div>
-<div className="blog_text">
-  <h3>
-    Senior Care Technology: Innovations to Enhance Quality of Life
-  </h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et.
-  </p>
-  <span>
-    <h4>
-      <IoMdTime className="icon" /> Feburary 30, 2023
-    </h4>
-    <aside></aside>
-    <h4>
-      <BiMessageDetail className="icon" /> 2 comment
-    </h4>
-  </span>
-</div>
-</div> */
 }
 
 export default BlogPage;

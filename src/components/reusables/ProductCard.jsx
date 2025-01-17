@@ -75,12 +75,12 @@ const ProductCard = ({ product, loading }) => {
         )}
       </span>
       <h3>
-        {product.brand} {""} {product.name}
+        {product.brand} {product.name}
       </h3>
       <p className="card_substible"> {product.subtitle} </p>
       <span className="card_price">
         <p> {product.category} </p>
-        <p> ${product.price} </p>
+        <p> ₦{product.price} </p>
       </span>
 
       <span className="btn_holder">

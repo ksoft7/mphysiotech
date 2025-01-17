@@ -100,58 +100,51 @@ function Contact() {
             <h4>How Can Help</h4>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Homepage</a>
+              Homepage
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">About Us</a>
+              About Us
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Services</a>
+              Services
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Blog & Article</a>
+              Blog & Article
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Testimonials</a>
+              Testimonials
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">FAQ</a>
+              FAQ
             </li>
           </ul>
           <ul>
             <h4>Services</h4>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Medical Check-Up</a>
+              Physiotherapy & <br /> Rehabilitation
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">In-Home Heatlh Care</a>
+              Chiropractic
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Senior Citizen Care</a>
+              Gym facility
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Residential Care</a>
+              Massage and Sport <br />
+              massage
             </li>
             <li>
               <FaChevronRight className="icon" />
-              <a href="#">Personalized Care</a>
-            </li>
-            <li>
-              <FaChevronRight className="icon" />
-              <a href="#">End of Life Care</a>
-            </li>
-            <li>
-              <FaChevronRight className="icon" />
-              <a href="#">Nursing Care</a>
+              Pain clinic
             </li>
           </ul>
           <div>

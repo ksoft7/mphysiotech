@@ -69,7 +69,7 @@ const Productscreen = () => {
                 <h1>
                   {product.brand} {product.name}
                 </h1>
-                <p>${product.price}</p>
+                <p>₦{product.price}</p>
                 <div>
                   <span>
                     <Star color="cyan" />

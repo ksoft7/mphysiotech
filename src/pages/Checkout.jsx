@@ -58,12 +58,12 @@ const Checkout = () => {
   return (
     <div style={{ marginTop: "20rem" }}>
       <h1>Checkout</h1>
-      <h3>Total Amount: ${amount.toFixed(2)}</h3>
+      <h3>Total Amount: ₦{amount.toFixed(2)}</h3>
 
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            {product.name} - ${product.price} x {product.qty}
+            {product.name} - ₦{product.price} x {product.qty}
           </li>
         ))}
       </ul>

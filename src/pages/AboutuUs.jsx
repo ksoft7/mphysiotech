@@ -32,18 +32,19 @@ function AboutuUs() {
         <div className="about-contents">
           <article>
             <h6>. About Us</h6>
-            <h3>Our Story Senior Living with Compassionate Guidance</h3>
+            <h3>Delivering compassionate excellent care</h3>
             <p className="about_text">
-              Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-              laoreet id donec ultrices tincidunt.
+              At Rehab & Recovery, we are driven by the belief that everyone
+              deserves to lead an active, pain-free, and healthy life. We firmly
+              believe that no pain or disability should be considered normal.
             </p>
             <div className="iconPar">
               <div>
                 {/* <img src={Icon1} alt="icon1" /> */}
                 <span>
-                  <h5>About Yourcare</h5>
+                  <h5>About rehab & recovery</h5>
                   <p>
-                    Yourcare is dedicated to providing compassionate and
+                    rehab & recovery is dedicated to providing compassionate and
                     informed support for seniors and their families.
                   </p>
                 </span>
@@ -53,7 +54,7 @@ function AboutuUs() {
                 <span>
                   <h5>Our Commitment</h5>
                   <p>
-                    Yourcare is dedicated to providing compassionate and
+                    rehab & recovery is dedicated to providing compassionate and
                     informed support for seniors and their families.
                   </p>
                 </span>
@@ -66,8 +67,10 @@ function AboutuUs() {
           <form action="#">
             <h3>Book Appointment</h3>
             <p className="formtext">
-              Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-              laoreet id donec ultrices tincidunt.
+              Schedule an appointment with our specialist Musculoskeletal/Sport
+              Physiotherapist, boasting over 9 years of expertise in treating
+              back pain, sports injuries, trauma cases, and post-surgical
+              rehabilitation.
             </p>
             <div>
               <input type="text" placeholder="First Name" />
@@ -118,8 +121,8 @@ function AboutuUs() {
               <span>
                 <h5>Expertise and Experience</h5>
                 <p>
-                  Yourcare boasts a team of experienced professionals with
-                  expertise in various aspects of senior care.
+                  rehab & recovery boasts a team of experienced professionals
+                  with expertise in various aspects of senior care.
                 </p>
               </span>
             </div>

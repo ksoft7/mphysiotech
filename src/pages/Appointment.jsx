@@ -19,8 +19,10 @@ function Appointment() {
           <h6>. Our Team</h6>
           <h3>Book Appointment</h3>
           <p>
-            Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
-            laoreet id donec ultrices tincidunt.
+            Schedule an appointment with our specialist Musculoskeletal/Sport
+            Physiotherapist, boasting over 9 years of expertise in treating back
+            pain, sports injuries, trauma cases, and post-surgical
+            rehabilitation.
           </p>
         </div>
       </section>

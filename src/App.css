@@ -1280,6 +1280,28 @@ header .btn-style {
   .hero_section p {
     font-size: 4.5vw;
   }
+  .test-slide-contents h6 {
+    font-size: 14px;
+  }
+  .test-slide-contents h3 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  .test-slide-contents p {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 1rem;
+    font-weight: 100;
+    text-align: justify;
+  }
+}
+
+@media (max-width: 857px) {
+  .test-slide-contents p {
+    font-size: 18px;
+    line-height: 29.74px;
+    width: 90%;
+  }
 }
 
 @media (max-width: 955px) {

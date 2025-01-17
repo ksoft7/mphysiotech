@@ -11,7 +11,7 @@ import {
   orderHistoryFail,
 } from "../slices/order.js";
 
-const API_URL = `http://mphysiotech-backend.onrender.com/api/orders`;
+const API_URL = `https://mphysiotech-backend.onrender.com/api/orders`;
 
 export const initializePayment = (orderData) => async (dispatch) => {
   try {

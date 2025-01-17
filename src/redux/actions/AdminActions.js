@@ -8,9 +8,6 @@ import {
   orderDelete,
   setDeliveredFlag,
   getOrders,
-  adminLoginRequest,
-  adminLoginSuccess,
-  adminLoginFail,
   logout,
 } from "../slices/admin.js";
 import {
@@ -136,7 +133,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      "http://Localhost:5000/api/orders",
+      "https://mphysiotech-backend.onrender.com/api/orders",
       config
     );
     dispatch(getOrders(data));
@@ -166,7 +163,7 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.delete(
-      `http://Localhost:5000/api/orders/${id}`,
+      `https://mphysiotech-backend.onrender.com/api/orders/${id}`,
       config
     );
     dispatch(orderDelete(data));
@@ -196,7 +193,11 @@ export const setDelivered = (id) => async (dispatch, getState) => {
         "Content-Type": "application/json",
       },
     };
-    await axios.put(`http://Localhost:5000/api/orders/${id}`, {}, config);
+    await axios.put(
+      `https://mphysiotech-backend.onrender.com/api/orders/${id}`,
+      {},
+      config
+    );
     dispatch(setDeliveredFlag());
   } catch (error) {
     dispatch(
@@ -220,34 +221,6 @@ export const resetErrorAndRemoval = () => async (dispatch) => {
   }
 };
 
-// export const updateProduct =
-//   (id, brand, name, category, stock, price, productIsNew, description) =>
-//   async (dispatch, getState) => {
-//     const adminInfo = getState().admin.adminInfo;
-
-//     try {
-//       if (!adminInfo || !adminInfo.token) {
-//         throw new Error("Not authorized as admin");
-//       }
-
-//       const config = {
-//         headers: {
-//           Authorization: `Bearer ${adminInfo.token}`,
-//         },
-//       };
-
-//       const { data } = await axios.put(
-//         `https://mphysiotech-backend.onrender.com/api/products/edit-product/${id}`, // Your backend API endpoint for updating product
-//         { brand, name, category, stock, price, productIsNew, description },
-//         config
-//       );
-
-//       dispatch(productUpdateSuccess(data)); // Dispatch success action with the updated product
-//     } catch (error) {
-//       dispatch(productUpdateFail(error.message || "Product update failed."));
-//     }
-//   };
-
 export const deleteProduct = (id) => async (dispatch) => {
   const adminInfo = JSON.parse(sessionStorage.getItem("adminInfo"));
 
@@ -263,7 +236,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     };
 
     const { data } = await axios.delete(
-      `http://Localhost:5000/api/products/${id}`,
+      `https://mphysiotech-backend.onrender.com/api/products/${id}`,
       config
     );
     dispatch(setProducts(data));
@@ -295,7 +268,7 @@ export const uploadProduct = (newProduct) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.post(
-      `http://Localhost:5000/api/products`,
+      `https://mphysiotech-backend.onrender.com/api/products`,
       newProduct,
       config
     );
@@ -328,7 +301,7 @@ export const removeReview =
         },
       };
       const { data } = await axios.put(
-        `http://Localhost:5000/api/products/${productId}/${reviewId}`,
+        `https://mphysiotech-backend.onrender.com/api/products/${productId}/${reviewId}`,
         {},
         config
       );
