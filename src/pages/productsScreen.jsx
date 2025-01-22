@@ -1,10 +1,14 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorites } from "../redux/actions/productActions";
 import "../App.css";
+import "../styles/productSty.css";
 import ProductCard from "../components/reusables/ProductCard.jsx";
 import { getProducts } from "../redux/actions/productActions.js";
 import { FaAnglesRight, FaAnglesLeft } from "react-icons/fa6";
+import { IoSearchOutline } from "react-icons/io5";
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 
 function Productscreen() {
   const dispatch = useDispatch();
@@ -14,6 +18,8 @@ function Productscreen() {
     dispatch(getProducts(1));
   }, [dispatch]);
 
+  useEffect(() => {}, [favoritesToggled, dispatch]);
+
   const paginationButtonClick = (page) => {
     dispatch(getProducts(page));
   };
@@ -22,20 +28,51 @@ function Productscreen() {
     <>
       {products.length >= 1 && (
         <div>
+          <section className="proSearch">
+            <h3>All categories</h3>
+            <form action="#">
+              <input
+                type="search"
+                name="search"
+                id=""
+                placeholder="Enter your search"
+              />
+              <button type="submit">
+                <IoSearchOutline />
+              </button>
+            </form>
+
+            <span>
+              {favoritesToggled ? (
+                <button>
+                  <MdOutlineFavorite
+                    size={22}
+                    onClick={() => dispatch(toggleFavorites(false))}
+                  />
+                </button>
+              ) : (
+                <button onClick={() => dispatch(toggleFavorites(true))}>
+                  <MdOutlineFavoriteBorder size={22} />
+                </button>
+              )}
+            </span>
+          </section>
           <div className="card_flex">
             {error ? (
               <div>{(error, console.log(error))} Error</div>
             ) : (
               products.map((product) => (
-                <ProductCard
-                  key={product._id}
-                  product={product}
-                  loading={loading}
-                />
+                <section>
+                  <ProductCard
+                    key={product._id}
+                    product={product}
+                    loading={loading}
+                  />
+                </section>
               ))
             )}
           </div>
-          {favoritesToggled && <h3></h3>}
+          {favoritesToggled}
         </div>
       )}
       <div className="paginationbtn">

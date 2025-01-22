@@ -1,7 +1,5 @@
 import React from "react";
-import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavorites } from "../redux/actions/productActions";
 import { useEffect, useState } from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
@@ -15,7 +13,7 @@ import "../styles/Dropdown.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { IoAlertCircleSharp } from "react-icons/io5";
-import { googleLogout } from "@react-oauth/google";
+// import { googleLogout } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 
 const Links = [
@@ -46,8 +44,6 @@ function Header() {
   const handleLogout = () => {
     dispatch(logout());
   };
-
-  useEffect(() => {}, [favoritesToggled, dispatch]);
 
   const toggleDropdown = () => {
     setShowDropdown((prev) => !prev);
@@ -92,18 +88,6 @@ function Header() {
               {cartItems.length > 0 && <p>{cartItems.length}</p>}
             </span>
 
-            {favoritesToggled ? (
-              <button>
-                <MdOutlineFavorite
-                  size={22}
-                  onClick={() => dispatch(toggleFavorites(false))}
-                />
-              </button>
-            ) : (
-              <button onClick={() => dispatch(toggleFavorites(true))}>
-                <MdOutlineFavoriteBorder size={22} />
-              </button>
-            )}
             <div>
               {userInfo ? (
                 <article className="headercont">

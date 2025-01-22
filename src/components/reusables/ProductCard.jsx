@@ -14,6 +14,7 @@ import { addCartItem } from "../../redux/actions/CartActions";
 import { useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Fallbackimg from "../../assets/imgs/fallbackimg.png";
+import { truncateCombined } from "../../utils/truncateword";
 
 const ProductCard = ({ product, loading }) => {
   const dispatch = useDispatch();
@@ -74,10 +75,9 @@ const ProductCard = ({ product, loading }) => {
           <p style={{ color: "purple", background: "#db86f7" }}>new</p>
         )}
       </span>
-      <h3>
-        {product.brand} {product.name}
+      <h3 title={`${product.brand} ${product.name}`}>
+        {truncateCombined(product.name, product.brand, 15)}
       </h3>
-      <p className="card_substible"> {product.subtitle} </p>
       <span className="card_price">
         <p> {product.category} </p>
         <p> ₦{product.price} </p>

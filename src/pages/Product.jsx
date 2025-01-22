@@ -1,6 +1,9 @@
 import React from "react";
-import Header from "../components/reusables/Header";
-import Footer from "../components/reusables/Footer";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
+import { FaChevronRight } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
 import style from "../styles/product.module.css";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/imgs/Logo.png";
@@ -11,8 +14,7 @@ import { FaFacebookF } from "react-icons/fa6";
 function Product() {
   return (
     <>
-      <Header />
-      <div className={style.header}>
+      <section className={style.header}>
         <p className={style.category}>All Categories</p>
 
         <form className={style.inputForm}>
@@ -33,7 +35,7 @@ function Product() {
             <NavLink to="/user-signup">Sign Up</NavLink>
           </li>
         </div>
-      </div>
+      </section>
 
       <div className={style.products}>
         <div className={style.product}>
@@ -180,7 +182,98 @@ function Product() {
           </button>
         </div>
       </div>
-      <Footer />
+
+      <footer className="footer">
+        <article>
+          <div>
+            <img src={Logo} alt="logo img" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et.
+            </p>
+            <h5>Follow Us</h5>
+            <span>
+              <FaLinkedinIn className="icon" />
+              <FaTwitter className="icon" />
+              <RiInstagramFill className="icon" />
+              <FaFacebookF className="icon" />
+            </span>
+          </div>
+
+          <ul>
+            <h4>How Can Help</h4>
+            <li>
+              <FaChevronRight className="icon" />
+              Homepage
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              About Us
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Services
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Blog & Article
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Testimonials
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              FAQ
+            </li>
+          </ul>
+          <ul>
+            <h4>Services</h4>
+            <li>
+              <FaChevronRight className="icon" />
+              Physiotherapy & <br /> Rehabilitation
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Chiropractic
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Gym facility
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Massage and Sport <br />
+              massage
+            </li>
+            <li>
+              <FaChevronRight className="icon" />
+              Pain clinic
+            </li>
+          </ul>
+          <div>
+            <h4>Newsletter</h4>
+            <p>
+              Subscribe our latest news & articles. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et.
+            </p>
+            <form>
+              <input type="email" placeholder="Your Email" />
+              <button>
+                <FaTelegramPlane className="icon" />
+              </button>
+            </form>
+          </div>
+        </article>
+        <hr />
+        <div className="copy_right">
+          <p>Copyright &copy; 2024 Rometheme All Rights Reserved.</p>
+          <span>
+            <p>Privacy Terms & Service</p>
+          </span>
+        </div>
+      </footer>
     </>
   );
 }

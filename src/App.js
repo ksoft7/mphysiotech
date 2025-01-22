@@ -20,9 +20,14 @@ function App() {
     googleKey();
   }, [googleClient]);
   return !googleClient ? (
-    <div>
-      <Spinner />
-    </div>
+    <Router>
+      <ToastContainer />
+      <Layout>
+        <main>
+          <Pages />
+        </main>
+      </Layout>
+    </Router>
   ) : (
     <GoogleOAuthProvider clientId={googleClient}>
       <Router>
@@ -36,5 +41,5 @@ function App() {
     </GoogleOAuthProvider>
   );
 }
-
+//  "https://mphysiotech-backend.onrender.com/api/config/google"
 export default App;

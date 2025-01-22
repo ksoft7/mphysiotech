@@ -12,15 +12,15 @@ function Ordersummary() {
         <h2>Order Summary</h2>
         <span>
           <p>Subtotal</p>
-          <p>${subtotal}</p>
+          <p>₦{subtotal}</p>
         </span>
         <span>
           <p>Shipping</p>
-          <p>${shipping}</p>
+          <p>₦{shipping}</p>
         </span>
         <span>
           <p>Total</p>
-          <p>${Number(subtotal) + Number(shipping)}</p>
+          <p>₦{Number(subtotal) + Number(shipping)}</p>
         </span>
         <Link to={"/checkout"}>
           <button>

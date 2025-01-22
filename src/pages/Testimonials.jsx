@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/reusables/Header";
 import "../App.css";
 import "../styles/testimonials.css";
 import TestimonialImg1 from "../assets/imgs/testimonial1.png";
@@ -12,7 +11,6 @@ import Footer from "../components/reusables/Footer.jsx";
 function Testimonials() {
   return (
     <>
-      <Header />
       <section className="hero_section">
         <h1>Testimonials</h1>
         <p>

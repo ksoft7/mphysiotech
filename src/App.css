@@ -303,7 +303,6 @@ header .btn-style {
   margin: 5rem auto;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 15rem;
   gap: 2rem;
 }
 
@@ -346,6 +345,7 @@ header .btn-style {
 .product_card h3 {
   font-family: "Poppins", sans-serif;
   font-size: var(--sm2-font-size);
+  white-space: nowrap;
 }
 
 .card_substible {

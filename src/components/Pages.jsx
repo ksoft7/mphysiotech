@@ -6,7 +6,7 @@ import Contact from "../pages/Contact";
 import Faq from "../pages/Faq";
 import OurTeam from "../pages/OurTeam";
 import PricingPlan from "../pages/PricingPlan";
-// import Product from "../pages/Product";
+import Product from "../pages/Product";
 import Testimonials from "../pages/Testimonials";
 // import UserLogin from "../pages/UserLogin";
 // import UserSignUp from "../pages/UserSignUp";
@@ -65,6 +65,7 @@ function Pages() {
           <Route path="/order-success" element={<OrderSucessful />} />
           <Route path="/order-history" element={<Userorder />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/product" element={<Product />} />
 
           <Route path="/admin" element={<Admin />} />
 
