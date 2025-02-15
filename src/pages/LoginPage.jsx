@@ -18,7 +18,7 @@ const LoginScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const redirect = "/products";
+  const redirect = "/";
   const [showAlert, setShowAlert] = useState(true);
 
   const { loading, error, userInfo, serverMsg } = useSelector(

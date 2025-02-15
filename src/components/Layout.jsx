@@ -6,16 +6,10 @@ const Layout = ({ children }) => {
   const location = useLocation();
 
   const noNavRoutes = [
-    "/admin-dashboard",
-    "/admin",
-    "/users",
-    "/ProductsTab",
-    "/trydashboard",
-    "/edit-product/:id",
-    "/Post-blog-Tab",
-    "/BlogTab",
-    "/edit-blogPost/:id",
-    "/Product-Post",
+    "/settings",
+    "/editProfile",
+    "/myAppointments",
+    "/appiontmentDetails/:id",
   ];
 
   const shouldHideNavBar = noNavRoutes.some((route) =>

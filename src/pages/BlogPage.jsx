@@ -53,7 +53,7 @@ function BlogPage() {
               <div key={post._id} className="blog_card color_bgcard">
                 <div className="img_content">
                   <img
-                    src={post.image}
+                    src={`http://localhost:5000${post.image}`}
                     alt={post.title}
                     loading={<Spinner />}
                   />
@@ -61,7 +61,7 @@ function BlogPage() {
                 <div className="blog_text">
                   <h3>{post.title}</h3>
                   <p>
-                    {post.contentTwo}
+                    {post.description}
                     <Link to={`/blog/${post._id}`}>read more...</Link>
                   </p>
                   <span>

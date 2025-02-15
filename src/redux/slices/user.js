@@ -25,8 +25,18 @@ export const userSlice = createSlice({
       state.error = null;
       state.userInfo = null;
     },
+    setSuccess: (state, action) => {
+      state.loading = false;
+      state.success = true;
+      state.error = null;
+    },
+    updateUser: (state, action) => {
+      state.loading = false;
+      state.userInfo = action.payload;
+      state.success = true;
+    },
     setError: (state, { payload }) => {
-      state.error = payload; // Ensure the error message is captured correctly
+      state.error = payload;
       state.loading = false;
     },
     verificationEmail: (state) => {
@@ -35,7 +45,6 @@ export const userSlice = createSlice({
       }
       state.loading = false;
       state.error = null;
-      state.success = true;
     },
     setServerResponseMsg: (state, { payload }) => {
       state.serverMsg = payload;
@@ -66,6 +75,8 @@ export const {
   setServerResponseMsg,
   userLogin,
   userLogout,
+  setSuccess,
+  updateUser,
   verificationEmail,
   stateReset,
 } = userSlice.actions;

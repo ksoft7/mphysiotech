@@ -153,18 +153,32 @@ const Productscreen = () => {
               </article>
               <figure>
                 <img
-                  src={product.images[0] || Fallbackimg}
+                  src={
+                    product.images[0]
+                      ? `http://localhost:5000/${product.images[0].replace(
+                          /\\/g,
+                          "/"
+                        )}`
+                      : Fallbackimg
+                  }
                   alt={product.name}
                   onError={(e) => {
-                    e.target.onError = null;
+                    e.target.onerror = null;
                     e.target.src = Fallbackimg;
                   }}
                 />
                 <img
-                  src={product.images[1] || Fallbackimg}
+                  src={
+                    product.images[1]
+                      ? `http://localhost:5000/${product.images[1].replace(
+                          /\\/g,
+                          "/"
+                        )}`
+                      : Fallbackimg
+                  }
                   alt={product.name}
                   onError={(e) => {
-                    e.target.onError = null;
+                    e.target.onerror = null;
                     e.target.src = Fallbackimg;
                   }}
                 />

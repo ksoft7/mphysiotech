@@ -13,6 +13,8 @@
     "concurrently": "^9.1.0",
     "cors": "^2.8.5",
     "cra-template": "1.2.0",
+    "draft-js": "^0.11.7",
+    "draft.js": "^0.2.0",
     "formik": "^2.4.6",
     "heroicons": "^2.2.0",
     "react": "^19.0.0",

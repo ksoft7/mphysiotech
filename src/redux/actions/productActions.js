@@ -12,12 +12,12 @@ import {
 } from "../../redux/slices/product.js";
 import axios from "axios";
 
+const API_URL = "https://mphysiotech-backend.onrender.com/api/products";
+
 export const getProducts = (page, favouriteToggle) => async (dispatch) => {
   dispatch(setLoading());
   try {
-    const { data } = await axios.get(
-      `https://mphysiotech-backend.onrender.com/api/products/${page}/${12}`
-    );
+    const { data } = await axios.get(`${API_URL}/${page}/${12}`);
     const { products, pagination } = data;
     dispatch(setProducts(products));
     dispatch(setPagination(pagination));
@@ -50,11 +50,7 @@ export const createProductPost = (newPost) => async (dispatch) => {
         Authorization: `Bearer ${adminInfo.token}`,
       },
     };
-    const { data } = await axios.post(
-      `https://mphysiotech-backend.onrender.com/api/products`,
-      newPost,
-      config
-    );
+    const { data } = await axios.post(`${API_URL}`, newPost, config);
     dispatch(ProductCreatedSuccess(data));
   } catch (error) {
     dispatch(
@@ -80,7 +76,7 @@ export const updateProduct =
       };
 
       const { data } = await axios.put(
-        `https://mphysiotech-backend.onrender.com/api/products/${id}`,
+        `${API_URL}/${id}`,
         { brand, name, category, stock, price, productIsNew, description },
         config
       );
@@ -126,9 +122,7 @@ export const toggleFavorites = (toggle) => (dispatch, getState) => {
 export const getProduct = (id) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(
-      `https://mphysiotech-backend.onrender.com/api/products/${id}`
-    );
+    const { data } = await axios.get(`${API_URL}/${id}`);
     dispatch(setProduct(data));
   } catch (error) {
     dispatch(
@@ -157,7 +151,7 @@ export const createProductReview =
       };
 
       await axios.post(
-        `https://mphysiotech-backend.onrender.com/api/products/reviews/${productId}`,
+        `${API_URL}/reviews/${productId}`,
         { comment, userId, rating, title },
         config
       );

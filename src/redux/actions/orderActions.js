@@ -11,7 +11,7 @@ import {
   orderHistoryFail,
 } from "../slices/order.js";
 
-const API_URL = `https://mphysiotech-backend.onrender.com/api/orders`;
+const API_URL = "https://mphysiotech-backend.onrender.com/api/orders";
 
 export const initializePayment = (orderData) => async (dispatch) => {
   try {
@@ -53,10 +53,7 @@ export const fetchOrderHistory = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      "https://mphysiotech-backend.onrender.com/api/orders/my-orders",
-      config
-    );
+    const { data } = await axios.get(`${API_URL}/my-orders`, config);
     dispatch(orderHistorySuccess(data));
   } catch (error) {
     dispatch(orderHistoryFail(error.response?.data?.message || error.message));

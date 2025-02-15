@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* settingHead */
+.settingHead {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 3rem auto;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.settingHead h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.settingHead button {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.settingContents {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 3.5rem;
+  width: 90%;
+  margin: 3rem auto;
+  background-color: #f4f4f7;
+  border-radius: 8px;
+  padding: 3rem 3rem;
+}
+
+.settingContents h3,
+.settingContents span button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  background-color: transparent;
+  color: #000000;
+  border: none;
+}
+
+.settingContents .icon {
+  color: #70696b;
+  font-size: 2rem;
+}
+
+/* upPro */
+.upPro {
+  width: 90%;
+  margin: 3rem auto;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 3rem;
+}
+
+.upPro span {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  width: 40rem;
+  margin: 0 auto;
+}
+
+.upPro span input {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  border: 1px solid var(--banner-color);
+  outline-color: var(--banner-color);
+  border-radius: 6px;
+}
+
+.upPro button {
+  width: 40rem;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  border: none;
+  outline-color: var(--banner-color);
+  border-radius: 6px;
+  background-color: var(--banner-color);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.userImgname {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: #0bc6db;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 448px) {
+  .upPro span,
+  .upPro button {
+    width: 100%;
+  }
+}

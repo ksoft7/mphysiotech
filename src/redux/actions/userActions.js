@@ -1,17 +1,54 @@
 import axios from "axios";
 import {
-  setUserOrders,
+  // setUserOrders,
   setError,
   setLoading,
   setServerResponseStatus,
   setServerResponseMsg,
   userLogin,
   userLogout,
+  updateUser,
   verificationEmail,
+  setSuccess,
   stateReset,
 } from "../slices/user.js";
 
 import { clearCart } from "../slices/cart.js";
+
+const API_URL = "https://mphysiotech-backend.onrender.com/api/users";
+
+export const updateUserProfile =
+  (updatedUser) => async (dispatch, getState) => {
+    dispatch(setLoading(true));
+    try {
+      const token = getState().user.userInfo?.token;
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const { data } = await axios.patch(
+        `${API_URL}/updateUser`,
+        updatedUser,
+        config
+      );
+
+      dispatch(updateUser(data)); // Update Redux state
+
+      localStorage.setItem("userInfo", JSON.stringify(data)); // Sync localStorage
+
+      dispatch(setSuccess("Profile updated successfully!"));
+    } catch (error) {
+      dispatch(
+        setError(
+          error.response?.data?.message || "Profile update failed. Try again."
+        )
+      );
+    }
+  };
 
 export const login = (email, password) => async (dispatch) => {
   dispatch(setLoading(true));
@@ -19,7 +56,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "https://mphysiotech-backend.onrender.com/api/users/login",
+      `${API_URL}/login`,
       { email, password },
       config
     );
@@ -50,7 +87,7 @@ export const logout = () => async (dispatch) => {
     }
 
     await axios.post(
-      "https://mphysiotech-backend.onrender.com/api/users/logout",
+      `${API_URL}/logout`,
       {},
       {
         headers: {
@@ -74,7 +111,7 @@ export const register = (name, email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "https://mphysiotech-backend.onrender.com/api/users/register",
+      `${API_URL}/register`,
       { name, email, password },
       config
     );
@@ -99,14 +136,11 @@ export const verifyEmail = (token) => async (dispatch) => {
 
   try {
     // Add token to the Authorization header
-    const { data } = await axios.get(
-      `https://mphysiotech-backend.onrender.com/api/users/verify-email`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const { data } = await axios.get(`${API_URL}/verify-email`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     dispatch(verificationEmail());
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -131,7 +165,7 @@ export const sendResetEmail = (email) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data, status } = await axios.post(
-      `https://mphysiotech-backend.onrender.com/api/users/password-reset-request`,
+      `${API_URL}/password-reset-request`,
       { email },
       config
     );
@@ -161,7 +195,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://mphysiotech-backend.onrender.com/api/users/password-reset/${token}`, // Token in URL
+      `${API_URL}/password-reset/${token}`, // Token in URL
       { password },
       config
     );
@@ -186,7 +220,7 @@ export const googleLogin =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.post(
-        "https://mphysiotech-backend.onrender.com/api/users/google-login",
+        `${API_URL}/google-login`,
         { googleId, email, name, googleImage },
         config
       );

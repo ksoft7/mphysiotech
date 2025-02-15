@@ -36,6 +36,7 @@ html {
   --border-radius-sm: 8px;
   --btn-text-color: #f9fcfd;
   --general-font-family: "Buenard", serif;
+  --general-font-family2: "Poppins", serif;
 }
 
 /* header */
@@ -1195,12 +1196,18 @@ header .btn-style {
 
 .menu-content nav ul li {
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .menu-content nav ul li a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .menu-content nav ul li a:hover {

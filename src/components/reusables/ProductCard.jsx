@@ -1,41 +1,33 @@
-import Image from "../../assets/imgs/eyeglasses.png";
-import "../../App.css";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { BiExpand } from "react-icons/bi";
 import { toast } from "react-toastify";
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
+import { Link as ReactLink } from "react-router-dom";
 import {
   addFavourites,
   removeFavourites,
 } from "../../redux/actions/productActions";
-import { useSelector, useDispatch } from "react-redux";
-import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
-import { Link as ReactLink } from "react-router-dom";
-import React, { useState } from "react";
 import { addCartItem } from "../../redux/actions/CartActions";
-import { useEffect } from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import Fallbackimg from "../../assets/imgs/fallbackimg.png";
+import "../../App.css";
 import { truncateCombined } from "../../utils/truncateword";
 
 const ProductCard = ({ product, loading }) => {
   const dispatch = useDispatch();
   const { favorites } = useSelector((state) => state.product);
-  const [isShown, setIsShown] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
+  const [isShown, setIsShown] = useState(false);
   const [cartPlusDisabled, setCartPlusDisabled] = useState(false);
 
   useEffect(() => {
     const item = cartItems.find((cartItem) => cartItem.id === product._id);
-    if (item && item.qty === product.stock) {
-      setCartPlusDisabled(true);
-    } else {
-      setCartPlusDisabled(false);
-    }
+    setCartPlusDisabled(item && item.qty === product.stock);
   }, [product, cartItems]);
 
   const addItem = (id) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === id);
-
-    if (existingItem) {
+    if (cartItems.some((cartItem) => cartItem.id === id)) {
       alert("Item is already in the cart!");
     } else {
       dispatch(addCartItem(id, 1));
@@ -46,25 +38,28 @@ const ProductCard = ({ product, loading }) => {
       });
     }
   };
-
+  console.log(product.images);
   return (
     <section className="product_card" loading={!loading}>
       <figure>
         <img
+          src={`http://localhost:5000/${product.images[
+            isShown && product.images.length === 2 ? 1 : 0
+          ].replace(/\\/g, "/")}`}
+          alt={product.name}
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
-          src={product.images[isShown && product.images.length === 2 ? 1 : 0]}
           onError={(e) => {
-            e.target.onError = null;
+            e.target.onerror = null;
             e.target.src = Fallbackimg;
           }}
-          alt={product.name}
         />
       </figure>
+
       <span className="card_stock">
         {product.stock < 5 ? (
           <p style={{ color: "#faad07", background: "yellow" }}>
-            only {product.stock} left
+            Only {product.stock} left
           </p>
         ) : product.stock < 1 ? (
           <p style={{ color: "red", background: "red" }}>Sold out</p>
@@ -72,15 +67,17 @@ const ProductCard = ({ product, loading }) => {
           <p style={{ color: "green", background: "#c3eb34" }}>In stock</p>
         )}
         {product.productIsNew && (
-          <p style={{ color: "purple", background: "#db86f7" }}>new</p>
+          <p style={{ color: "purple", background: "#db86f7" }}>New</p>
         )}
       </span>
+
       <h3 title={`${product.brand} ${product.name}`}>
         {truncateCombined(product.name, product.brand, 15)}
       </h3>
+
       <span className="card_price">
-        <p> {product.category} </p>
-        <p> ₦{product.price} </p>
+        <p>{product.category}</p>
+        <p>₦{product.price}</p>
       </span>
 
       <span className="btn_holder">
@@ -99,6 +96,7 @@ const ProductCard = ({ product, loading }) => {
             <BiExpand size={24} color="blue" />
           </button>
         </ReactLink>
+
         <button
           disabled={product.stock <= 0 || cartPlusDisabled}
           onClick={() => addItem(product._id)}

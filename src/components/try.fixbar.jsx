@@ -90,12 +90,12 @@ function Tryfixbar() {
             className={activeLink === 4 ? "hovered" : ""}
             onMouseOver={() => handleLinkHover(4)}
           >
-            <a href="#">
+            <Link>
               <span className="icon">
                 <MdPayments />
               </span>
               <span className="title">Orders</span>
-            </a>
+            </Link>
           </li>
 
           <li
@@ -116,14 +116,14 @@ function Tryfixbar() {
             className={activeLink === 6 ? "hovered" : ""}
             onMouseOver={() => handleLinkHover(6)}
           >
-            <a href="#">
+            <Link>
               <span className="icon">
                 <IoIosLogOut />
               </span>
               <span onClick={handleLogout} className="title">
                 Sign Out
               </span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

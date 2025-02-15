@@ -8,17 +8,14 @@ import user from "./slices/user.js";
 
 import blogPosts from "./slices/blogPost.js";
 
-import admin from "./slices/admin.js";
-
-import order from "./slices/order.js";
+import appointments from "./slices/appointment.js";
 
 const reducer = combineReducers({
   product,
   cart,
   user,
   blogPosts,
-  admin,
-  order,
+  appointments,
 });
 export default configureStore({ reducer });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import BlogPage from "../pages/BlogPage";
 import Appointment from "../pages/Appointment";
 import Contact from "../pages/Contact";
@@ -8,8 +8,6 @@ import OurTeam from "../pages/OurTeam";
 import PricingPlan from "../pages/PricingPlan";
 import Product from "../pages/Product";
 import Testimonials from "../pages/Testimonials";
-// import UserLogin from "../pages/UserLogin";
-// import UserSignUp from "../pages/UserSignUp";
 import BlogInnerdetails from "../pages/BlogInnerdetails";
 import Homepage from "../pages/Homepage";
 import ProductsScreen from "../pages/productsScreen";
@@ -21,20 +19,13 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/ResgisterPage";
 import EmailVerification from "../pages/EmailVerification";
 import PasswordResetScreen from "../pages/PasswordReset";
-import AdminDashboard from "../pages/Dashboard/dashboard.jsx";
-import Admin from "../pages/Admin";
-import AdminProtectedRoute from "./AdminProtectedRoute";
-import UsersTab from "../pages/Dashboard/UsersTab";
-import ProductsTab from "../pages/Dashboard/ProductsTab";
-import Trydashboard from "./trydashboard";
-import EditProduct from "../pages/Dashboard/EditProduct";
-import NewBlogPostTab from "../pages/Dashboard/NewBlogPostTab";
-import EditBlog from "../pages/Dashboard/EditBlog";
-import BlogTab from "../pages/Dashboard/BlogTab";
 import { FixedBarProvider } from "../Context/Fixcontext";
-import ProductPost from "../pages/Dashboard/ProductPost";
 import OrderSucessful from "../pages/OrderSuccess";
 import Userorder from "../pages/UserorderHistory";
+import Settings from "../pages/settings";
+import EditProfile from "../pages/EditProfile";
+import MyAppointment from "../pages/myAppointments";
+import AppiontmentDetails from "../pages/appiontmentDetails";
 import Order from "../pages/order";
 function Pages() {
   return (
@@ -66,21 +57,16 @@ function Pages() {
           <Route path="/order-history" element={<Userorder />} />
           <Route path="/order" element={<Order />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/editProfile" element={<EditProfile />} />
+          <Route path="/myAppointments" element={<MyAppointment />} />
+          <Route
+            path="/appiontmentDetails/:id"
+            element={<AppiontmentDetails />}
+          />
+          <Route path="/settings" element={<Settings />} />
 
-          <Route path="/admin" element={<Admin />} />
-
-          {/* Admin actions */}
-          <Route path="/trydashboard" element={<Trydashboard />} />
-          <Route element={<AdminProtectedRoute />}>
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
-            <Route path="/users" element={<UsersTab />} />
-            <Route path="/ProductsTab" element={<ProductsTab />} />
-            <Route path="/Post-blog-Tab" element={<NewBlogPostTab />} />
-            <Route path="/edit-product/:id" element={<EditProduct />} />
-            <Route path="/Product-Post" element={<ProductPost />} />
-            <Route path="/BlogTab" element={<BlogTab />} />
-            <Route path="/edit-blogPost/:id" element={<EditBlog />} />
-          </Route>
+          {/* 404 - Redirect Unknown Routes */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </FixedBarProvider>
     </div>

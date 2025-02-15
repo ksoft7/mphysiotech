@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "../assets/imgs/Logo2.svg";
+import { IoSettingsOutline } from "react-icons/io5";
 import "../App.css";
 import { FaUserCheck } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
@@ -13,7 +14,6 @@ import "../styles/Dropdown.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { IoAlertCircleSharp } from "react-icons/io5";
-// import { googleLogout } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 
 const Links = [
@@ -122,11 +122,7 @@ function Header() {
                           <ReactLink to={"/profile"}>
                             <p className="dropdown-item">Profile</p>
                           </ReactLink>
-                          {userInfo.isAdmin && (
-                            <ReactLink to={"/admin-console"}>
-                              <p className="dropdown-item">Admin Console</p>
-                            </ReactLink>
-                          )}
+
                           <div className="dropdown-item">
                             <button onClick={handleLogout}>Logout</button>
                           </div>
@@ -169,6 +165,11 @@ function Header() {
                                 <button className="btn-style">
                                   Appointment
                                 </button>
+                              </ReactLink>
+                            </li>
+                            <li>
+                              <ReactLink to={"/settings"}>
+                                <IoSettingsOutline className="icon" /> Settings
                               </ReactLink>
                             </li>
                           </ul>
@@ -222,6 +223,11 @@ function Header() {
                                 <button className="btn-style">
                                   Appointment
                                 </button>
+                              </ReactLink>
+                            </li>
+                            <li>
+                              <ReactLink to={"/settings"}>
+                                <IoSettingsOutline className="icon" /> Settings
                               </ReactLink>
                             </li>
                           </ul>
