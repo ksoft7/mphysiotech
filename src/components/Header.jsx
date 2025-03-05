@@ -14,7 +14,6 @@ import "../styles/Dropdown.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { IoAlertCircleSharp } from "react-icons/io5";
-import { FcGoogle } from "react-icons/fc";
 
 const Links = [
   { name: "Homepage", route: "/" },
@@ -111,9 +110,7 @@ function Header() {
                     {showDropdown && (
                       <ul className="dropdown-menu">
                         <div className="dropdown-item">
-                          <p>
-                            {userInfo.email} <FcGoogle />
-                          </p>
+                          <p>{userInfo.email}</p>
                         </div>
                         <div>
                           <ReactLink to={"/order-history"}>
