@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import Logo from "../assets/imgs/Logo2.svg";
+import Logo from "../assets/imgs/rehabLogo.png";
 import { IoSettingsOutline } from "react-icons/io5";
 import "../App.css";
 import { FaUserCheck } from "react-icons/fa";
@@ -18,7 +18,7 @@ import { IoAlertCircleSharp } from "react-icons/io5";
 const Links = [
   { name: "Homepage", route: "/" },
   { name: "About Us", route: "/aboutpage" },
-  { name: "Products", route: "/products" },
+  { name: "Store", route: "/products" },
   { name: "blog", route: "/blog" },
   { name: "Contact-us", route: "/contact-us" },
 ];

@@ -1257,6 +1257,10 @@ header .btn-style {
   font-family: var(--general-font-family);
 }
 
+.logo1 {
+  width: 15rem;
+}
+
 @media (max-width: 1222px) {
   .aboutCard .about-contents {
     display: flex;
@@ -1350,7 +1354,7 @@ header .btn-style {
 /* mobile */
 @media (max-width: 441px) {
   .logo1 {
-    width: 12rem;
+    width: 10rem;
   }
 
   .aboutCard form div input {

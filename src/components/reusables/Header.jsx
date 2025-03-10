@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebookF } from "react-icons/fa6";
-import Logo from "../../assets/imgs/Logo.png";
+import Logo from "../../assets/imgs/rehabLogo.png";
 import Clock from "../../assets/imgs/clock-outline.png";
 import style from "../../styles/header.module.css";
 

@@ -20,7 +20,7 @@ function Homepage() {
     <>
       <section className="hero_sec">
         <article>
-          <h6>. Welcome to rehab & recovery</h6>
+          <h6>Welcome to Rehab & Recovery</h6>
           <h1>
             Your ultimate Solution for Complete recovery and total rejuvenation
           </h1>
@@ -68,10 +68,10 @@ function Homepage() {
               <input type="tel" placeholder="Services" />
             </div>
             <textarea placeholder="Message" />
-            <p>
+            {/* <p>
               <input type="checkbox" name="subscribe" id="sub" />
               Emile Subscribe
-            </p>
+            </p> */}
             <span>
               <button className="btn-style">Book Now</button>
             </span>
@@ -145,8 +145,8 @@ function Homepage() {
       <Journey />
       <section className="homecardsCon">
         <div className="home_headings">
-          <h6>. Our Service</h6>
-          <h3>Our Comprehensive Senior Care Solutions</h3>
+          <h6>. Our Service(Coming soon) </h6>
+          <h3>Customized solutions designed to meet your unique needs</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
@@ -157,7 +157,7 @@ function Homepage() {
             <figure>
               <img src={Firstaid} alt="First aid icon" />
             </figure>
-            <h5>Medical Check-Up</h5>
+            <h5>Physiotherapy & Rehabilitation</h5>
             <p>
               Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
               laoreet id donec ultrices tincidunt.
@@ -167,7 +167,7 @@ function Homepage() {
             <figure>
               <img src={Retirementicon} alt="Home Heatlh Care icon" />
             </figure>
-            <h5>In-Home Heatlh Care</h5>
+            <h5>Pain clinic and Chiropractic</h5>
             <p>
               Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
               laoreet id donec ultrices tincidunt.
@@ -177,7 +177,7 @@ function Homepage() {
             <figure>
               <img src={Ederlyicon} alt="Senior Citizen Care icon" />
             </figure>
-            <h5>Senior Citizen Care</h5>
+            <h5>Gym facility</h5>
             <p>
               Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
               laoreet id donec ultrices tincidunt.
@@ -187,7 +187,7 @@ function Homepage() {
             <figure>
               <img src={Ederlyicon2} alt="034-elderly icon" />
             </figure>
-            <h5>Personalized Care</h5>
+            <h5>Massage and Sport massage</h5>
             <p>
               Aliquam vestibulum morbi blandit cursus risus. Id interdum velit
               laoreet id donec ultrices tincidunt.

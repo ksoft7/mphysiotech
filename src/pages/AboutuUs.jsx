@@ -81,10 +81,10 @@ function AboutuUs() {
               <input type="tel" placeholder="Services" />
             </div>
             <textarea placeholder="Message" />
-            <p>
+            {/* <p>
               <input type="checkbox" name="subscribe" id="sub" />
               Emile Subscribe
-            </p>
+            </p> */}
             <span>
               <button className="btn-style">Book Now</button>
             </span>

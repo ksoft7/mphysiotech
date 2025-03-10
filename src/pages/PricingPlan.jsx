@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "../components/reusables/Header";
 import "../App.css";
-import Journey_component from "../components/reusables/Journey.jsx";
+import Journeycomponent from "../components/reusables/Journey.jsx";
 import Footer from "../components/reusables/Footer.jsx";
-import Pricing_plan_card from "../components/reusables/PricingPlanCards.jsx";
+import Pricingplancard from "../components/reusables/PricingPlanCards.jsx";
 function PricingPlan() {
   return (
     <>
-      <Header />
       <section className="hero_section">
         <h1>Pricing Plan</h1>
         <p>
@@ -23,10 +22,10 @@ function PricingPlan() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <Pricing_plan_card />
+        <Pricingplancard />
       </section>
 
-      <Journey_component />
+      <Journeycomponent />
 
       <Footer />
     </>

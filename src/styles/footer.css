@@ -34,7 +34,7 @@
 .footer-cards .footer_card1 {
   background-color: var(--fontColor-primary-dark);
   width: 500px;
-  height: 497px;
+  height: 537px;
   border-radius: 5px;
 }
 
@@ -95,7 +95,7 @@ footer .footer-contents {
   justify-content: space-between;
   gap: 6rem;
   width: 90%;
-  margin: 0 auto;
+  margin: 4rem auto;
   margin-bottom: 3rem;
   flex-wrap: wrap;
 }
@@ -107,8 +107,7 @@ footer .footer-contents div {
 }
 
 footer .footer-contents div img {
-  width: 200px;
-  height: 50px;
+  height: 60px;
 }
 
 footer .footer-contents div p {

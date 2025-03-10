@@ -10,7 +10,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
-import Logo from "../../assets/imgs/logo_img.svg";
+import Logo from "../../assets/imgs/rehabLogo.png";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
@@ -21,28 +21,30 @@ function Footer() {
           <h6>. Contact Us</h6>
           <h3>Staying In Touch</h3>
           <p className="text-wd">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
+            We value our relationship with you. Keep the conversation going by
+            connecting with us through our various channels. Whether it's email,
+            phone, or social media, we look forward to hearing from you and
+            staying engaged.
           </p>
           <div>
             <FaLocationDot className="icon" />
             <span>
               <h4>Location</h4>
-              <p>KLLG st, No.99, Pku City, ID 28289</p>
+              <p>(Coming soon)</p>
             </span>
           </div>
           <div>
             <MdEmail className="icon" />
             <span>
               <h4>Email</h4>
-              <p>hello@domainsite.com</p>
+              <p>rehabnrecoveryng.com</p>
             </span>
           </div>
           <div>
             <FaPhoneAlt className="icon" />
             <span>
               <h4>Phone</h4>
-              <p>0761-8523-398</p>
+              <p>+234-8161-756-637</p>
             </span>
           </div>
         </div>
@@ -50,10 +52,10 @@ function Footer() {
       <article className="footer-contents">
         <div>
           <img src={Logo} alt="logo img" />
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et.
-          </p>
+          </p> */}
           <h5>Follow Us</h5>
           <span>
             <FaLinkedinIn className="icon" />
@@ -77,7 +79,7 @@ function Footer() {
           </li>
           <li>
             <FaChevronRight className="icon" />
-            Services
+            <Link to={"/products"}>Store</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
@@ -121,9 +123,10 @@ function Footer() {
         <div>
           <h4>Newsletter</h4>
           <p>
-            Subscribe our latest news & articles. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et.
+            Enhance your well-being by subscribing to our newsletter. Stay
+            connected with exclusive offers, wellness tips, and the latest
+            updates from our website. Join our community and receive all the
+            support you need to thrive, delivered directly to your inbox.
           </p>
           <form>
             <input type="email" placeholder="Your Email" />

@@ -1,16 +1,16 @@
 import React from "react";
 import "../../App.css";
 import style from "../../styles/journey.module.css";
+import { Link } from "react-router-dom";
 function Journey() {
   return (
     <section className={style.journey}>
-      <h2>Start Your Journey to Better Senior Care Today!</h2>
-      <p>
-        Aliquam vestibulum morbi blandit cursus risus. Id interdum velit laoreet
-        id donec ultrices tincidunt.
-      </p>
+      <h2>Start Your Journey to Complete & Total Recovery Today !</h2>
+      <p>Book an appointment today by clicking on the button below</p>
       <span>
-        <button className={style.btnSty2}>Call Us Now</button>
+        <Link to={"/book-an-appointment"}>
+          <button className={style.btnSty2}>Book Now</button>
+        </Link>
       </span>
     </section>
   );

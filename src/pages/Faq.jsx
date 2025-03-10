@@ -84,24 +84,6 @@ function Faq() {
             </article>
           ))}
         </section>
-
-        <section className="trusted_sec">
-          <article></article>
-          <div className="trustcen">
-            <h3>237K</h3>
-            <h6>Trusted Center</h6>
-          </div>
-          <section className="page_link2">
-            <h5>Trusted By The 1000+ Modern Teams And Companies</h5>
-            <figure>
-              <img src={Logoimg1} alt="logoisum" />
-              <img src={Logoimg2} alt="logoisum" />
-              <img src={Logoimg3} alt="logoisum" />
-              <img src={Logoimg4} alt="logoisum" />
-              <img src={Logoimg5} alt="logoisum" />
-            </figure>
-          </section>
-        </section>
       </section>
 
       <Footer />

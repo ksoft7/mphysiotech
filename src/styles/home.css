@@ -21,9 +21,10 @@
 .hero_sec h1 {
   font-family: var(--general-font-family);
   font-weight: 400;
-  font-size: var(--big-font-size);
+  font-size: 55px;
   color: var(--fontColor-primary-light);
   width: 840px;
+  margin: 1rem 0;
 }
 .hero_sec p {
   font-family: var(--general-font-family);
