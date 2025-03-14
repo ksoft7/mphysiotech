@@ -12,7 +12,7 @@ import Retirementicon from "../assets/imgs/retirement-home.png";
 import Ederlyicon from "../assets/imgs/010-elderly.png";
 import Ederlyicon2 from "../assets/imgs/034-elderly.png";
 import { Link } from "react-router-dom";
-import TeamCard from "../components/reusables/TeamCard";
+// import TeamCard from "../components/reusables/TeamCard";
 import Testimonial from "../components/testimonialSlide";
 import Journey from "../components/reusables/Journey";
 function Homepage() {
@@ -199,7 +199,7 @@ function Homepage() {
         </span>
       </section>
 
-      <section className="home_team">
+      {/* <section className="home_team">
         <div className="home_headings">
           <h6>. Our Service</h6>
           <h3>Our Comprehensive Senior Care Solutions</h3>
@@ -213,7 +213,7 @@ function Homepage() {
           <TeamCard />
           <TeamCard />
         </article>
-      </section>
+      </section> */}
 
       <Testimonial />
       <Footer />

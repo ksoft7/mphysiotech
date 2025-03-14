@@ -53,7 +53,7 @@ function BlogPage() {
               <div key={post._id} className="blog_card color_bgcard">
                 <div className="img_content">
                   <img
-                    src={`http://localhost:5000${post.image}`}
+                    src={post.image}
                     alt={post.title}
                     loading={<Spinner />}
                   />
