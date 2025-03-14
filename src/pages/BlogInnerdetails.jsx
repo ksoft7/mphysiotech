@@ -32,7 +32,7 @@ function BlogInnerdetails() {
               <p>By {blogPost.author}</p>
             </div>
             <figure>
-              <img src={`http://localhost:5000${blogPost.image}`} alt="title" />
+              <img src={blogPost.image} alt="title" />
             </figure>
 
             <p>{blogPost.content}</p>
