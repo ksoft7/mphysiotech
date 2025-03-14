@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchBlogPosts } from "../redux/actions/blogPostActions";
 import Spinner from "../components/reusables/Spinner";
-
+import { truncateString } from "../utils/truncateword";
 function BlogPage() {
   const dispatch = useDispatch();
   const { blogPosts, loading, error } = useSelector((state) => state.blogPosts);
@@ -61,7 +61,7 @@ function BlogPage() {
                 <div className="blog_text">
                   <h3>{post.title}</h3>
                   <p>
-                    {post.description}
+                    {truncateString(post.description)}
                     <Link to={`/blog/${post._id}`}>read more...</Link>
                   </p>
                   <span>

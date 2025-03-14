@@ -133,11 +133,12 @@
 /* blog details style */
 .blog_inner {
   width: 80%;
-  margin: 13rem auto;
+  margin: 5rem auto;
   display: flex;
   flex-flow: column nowrap;
   gap: 2rem;
   width: 60rem;
+  /* border: 1px solid red; */
 }
 
 .blog_inner h1 {
@@ -150,6 +151,7 @@
   width: 100%;
   height: 33rem;
   border-radius: 0.5rem;
+  box-shadow: 1px 1px 9px 2px rgba(31, 30, 30, 0.566);
 }
 
 .blog_inner figure {
@@ -192,6 +194,28 @@
 .blog_inner form button {
   border: none;
   background-color: transparent;
+}
+
+.detailBlog {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.detailBlog span {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--general-font-family2);
+  font-size: 14px;
+  color: var(--fontColor-primary-dark);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.detailBlog .icon {
+  font-size: 1.5rem;
+  color: var(--banner-color);
 }
 
 @media (max-width: 610px) {

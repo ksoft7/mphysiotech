@@ -43,9 +43,9 @@ const ProductCard = ({ product, loading }) => {
     <section className="product_card" loading={!loading}>
       <figure>
         <img
-          src={`http://localhost:5000/${product.images[
+          src={product.images[
             isShown && product.images.length === 2 ? 1 : 0
-          ].replace(/\\/g, "/")}`}
+          ].replace(/\\/g, "/")}
           alt={product.name}
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
