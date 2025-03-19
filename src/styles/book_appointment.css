@@ -124,7 +124,7 @@
 
 .appointment_form span {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 2rem;
 }
@@ -287,6 +287,13 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+@media (max-width: 1126px) {
+  .appointment_form .inputHol input {
+    width: 100%;
+    height: 55px;
+  }
 }
 
 @media (max-width: 591px) {

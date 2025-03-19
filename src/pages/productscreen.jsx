@@ -66,9 +66,7 @@ const Productscreen = () => {
           <section className="productdetails">
             <div className="productdetails_con">
               <article>
-                <h1>
-                  {product.brand} {product.name}
-                </h1>
+                <h1>{product.name}</h1>
                 <p>₦{product.price}</p>
                 <div>
                   <span>
@@ -79,9 +77,6 @@ const Productscreen = () => {
                     <Star rating={product.rating} star={5} />
                   </span>
                   <p>{product.numberOfReviews} Reviews</p>
-                </div>
-                <div>
-                  <p>{product.subtitle}</p>
                 </div>
                 {product.productIsNew && (
                   <p
@@ -137,10 +132,10 @@ const Productscreen = () => {
                   Add to cart
                 </button>
                 <div className="shipping">
-                  <span>
-                    <BiCheckShield size="20px" />
-                    <p>Year extended warranty</p>
-                  </span>
+                  {/* <span>
+                      <BiCheckShield size="20px" />
+                      <p>Year extended warranty</p>
+                    </span> */}
                   <span>
                     <BiPackage size="20px" />
                     <p>Shipped in 2 - 3 days</p>
@@ -153,14 +148,7 @@ const Productscreen = () => {
               </article>
               <figure>
                 <img
-                  src={
-                    product.images[0]
-                      ? `http://localhost:5000/${product.images[0].replace(
-                          /\\/g,
-                          "/"
-                        )}`
-                      : Fallbackimg
-                  }
+                  src={product.images[0] ? `${product.images[0]}` : Fallbackimg}
                   alt={product.name}
                   onError={(e) => {
                     e.target.onerror = null;
@@ -168,14 +156,7 @@ const Productscreen = () => {
                   }}
                 />
                 <img
-                  src={
-                    product.images[1]
-                      ? `http://localhost:5000/${product.images[1].replace(
-                          /\\/g,
-                          "/"
-                        )}`
-                      : Fallbackimg
-                  }
+                  src={product.images[1] ? `${product.images[1]}` : Fallbackimg}
                   alt={product.name}
                   onError={(e) => {
                     e.target.onerror = null;
@@ -187,42 +168,36 @@ const Productscreen = () => {
 
             {userInfo && (
               <>
-                <div>
-                  <button
-                    disabled={hasUserReviewed()}
-                    onClick={() => setReviewBoxOpen(!reviewBoxOpen)}
-                  >
-                    Write a review
-                  </button>
-                </div>
-                {reviewBoxOpen && (
-                  <div className="reviewmodal">
-                    <span>
-                      <button onClick={() => setRating(1)}>
-                        <Star />
-                      </button>
-                      <button onClick={() => setRating(2)}>
-                        <Star rating={rating} star={2} />
-                      </button>
-                      <button onClick={() => setRating(3)}>
-                        <Star rating={rating} star={3} />
-                      </button>
-                      <button onClick={() => setRating(4)}>
-                        <Star rating={rating} star={4} />
-                      </button>
-                      <button onClick={() => setRating(5)}>
-                        <Star rating={rating} star={5} />
-                      </button>
-                    </span>
+                <section className="comment_sec">
+                  <div>
+                    <button
+                      className="btnReview"
+                      disabled={hasUserReviewed()}
+                      onClick={() => setReviewBoxOpen(!reviewBoxOpen)}
+                    >
+                      Write a review
+                    </button>
+                  </div>
+                  {reviewBoxOpen && (
+                    <div className="reviewmodal">
+                      <span>
+                        <button onClick={() => setRating(1)}>
+                          <Star />
+                        </button>
+                        <button onClick={() => setRating(2)}>
+                          <Star rating={rating} star={2} />
+                        </button>
+                        <button onClick={() => setRating(3)}>
+                          <Star rating={rating} star={3} />
+                        </button>
+                        <button onClick={() => setRating(4)}>
+                          <Star rating={rating} star={4} />
+                        </button>
+                        <button onClick={() => setRating(5)}>
+                          <Star rating={rating} star={5} />
+                        </button>
+                      </span>
 
-                    <div>
-                      <input
-                        type="text"
-                        onChange={(e) => {
-                          setTitle(e.target.value);
-                        }}
-                        placeholder="Review title (optional)"
-                      />
                       <textarea
                         name="comment"
                         onChange={(e) => {
@@ -232,8 +207,8 @@ const Productscreen = () => {
                       />
                       <button onClick={() => onSubmit()}>Publish review</button>
                     </div>
-                  </div>
-                )}
+                  )}
+                </section>
               </>
             )}
 
@@ -250,13 +225,12 @@ const Productscreen = () => {
                         <Star rating={product.rating} star={4} />
                         <Star rating={product.rating} star={5} />
                       </p>
-                      <p>{review.title && review.title}</p>
                     </span>
-                    <p>{review.comment}</p>
-                    <p>
+                    <h4>{review.comment}</h4>
+                    <h5>
                       by {review.name}, &nbsp;
                       {new Date(review.createdAt).toDateString()}
-                    </p>
+                    </h5>
                   </div>
                 ))
               ) : (

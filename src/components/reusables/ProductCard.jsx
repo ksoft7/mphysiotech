@@ -38,7 +38,6 @@ const ProductCard = ({ product, loading }) => {
       });
     }
   };
-  console.log(product.images);
   return (
     <section className="product_card" loading={!loading}>
       <figure>

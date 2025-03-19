@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "../App.css";
-import Journeycard from "../components/reusables/Journey.jsx";
 import Footer from "../components/reusables/Footer.jsx";
 import "../styles/book_appointment.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -137,16 +136,15 @@ function Appointment() {
         </div>
 
         <span>
-          <p>
+          {/* <p>
             <input type="checkbox" name="check" /> Email Subscribe
-          </p>
+          </p> */}
           <button className="btn-style" type="submit" disabled={loading}>
             {loading ? "Booking..." : "Book Now"}
           </button>
         </span>
       </form>
 
-      <Journeycard />
       <Footer />
     </>
   );

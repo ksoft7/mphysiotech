@@ -329,7 +329,8 @@ header .btn-style {
 }
 
 .product_card figure img {
-  width: 15rem;
+  width: 100%;
+  height: 15rem;
 }
 
 .card_stock {
@@ -392,7 +393,7 @@ header .btn-style {
   gap: 5rem;
   width: 90%;
   margin: 0 auto;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 .productdetails h1 {
@@ -464,7 +465,8 @@ header .btn-style {
 }
 .productdetails_con img {
   width: 34rem;
-  background-color: #028593;
+  height: 30rem;
+  border-radius: 8px;
 }
 
 .qty-btn {
@@ -517,6 +519,33 @@ header .btn-style {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+/* comment_sec */
+.comment_sec {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 3rem;
+}
+
+.comment_sec .btnReview {
+  background-color: transparent;
+  border: none;
+  font-family: var(--general-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  color: var(--banner-color);
+  cursor: pointer;
+}
+
+.comment_sec .reviewmodal {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
 }
 
 /* paginationbtn */
@@ -1261,10 +1290,34 @@ header .btn-style {
   width: 15rem;
 }
 
-@media (max-width: 1222px) {
+@media (max-width: 1233px) {
   .aboutCard .about-contents {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .productdetails_con figure {
+    display: grid;
+    grid-template-columns: repeat(2, 100%);
+    gap: 1.6rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+  }
+
+  .productdetails_con img {
+    width: 100%;
+    height: 30rem;
+    border-radius: 8px;
+    padding: 1rem 0;
+    object-fit: contain;
+    box-shadow: 1px 1px 9px 2px rgba(11, 10, 10, 0.174);
+  }
+}
+
+@media (max-width: 802px) {
+  .productdetails .producttext {
+    width: 100%;
   }
 }
 
