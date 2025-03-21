@@ -11,8 +11,11 @@ import Fallbackimg from "../assets/imgs/fallbackimg.png";
 import "../App.css";
 import { toast } from "react-toastify";
 import { createProductReview } from "../redux/actions/productActions.js";
+import { addCartItem } from "../redux/actions/CartActions";
 
 const Productscreen = () => {
+  const [cartPlusDisabled, setCartPlusDisabled] = useState(false);
+  const { cartItems } = useSelector((state) => state.cart);
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -21,10 +24,27 @@ const Productscreen = () => {
   );
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(1);
-  const [title, setTitle] = useState("");
   const [reviewBoxOpen, setReviewBoxOpen] = useState(false);
   const { userInfo } = useSelector((state) => state.user);
   const [buttonLoading, setButtonLoading] = useState(false);
+
+  useEffect(() => {
+    const item = cartItems.find((cartItem) => cartItem.id === product._id);
+    setCartPlusDisabled(item && item.qty === product.stock);
+  }, [product, cartItems]);
+
+  const addItem = (id) => {
+    if (cartItems.some((cartItem) => cartItem.id === id)) {
+      alert("Item is already in the cart!");
+    } else {
+      dispatch(addCartItem(id, 1));
+      toast.success("Product added successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+    }
+  };
   useEffect(() => {
     dispatch(getProduct(id));
     setReviewBoxOpen(false);
@@ -47,9 +67,7 @@ const Productscreen = () => {
     product.reviews.some((item) => item.user === userInfo._id);
   const onSubmit = () => {
     setButtonLoading(true);
-    dispatch(
-      createProductReview(product._id, userInfo._id, comment, rating, title)
-    );
+    dispatch(createProductReview(product._id, userInfo._id, comment, rating));
     setButtonLoading(false);
   };
 
@@ -128,7 +146,13 @@ const Productscreen = () => {
                   </button>
                 </div>
                 <p>In stock: {product.stock}</p>
-                <button className="cartbtn" disabled={product.stock === 0}>
+                <button
+                  className="cartbtn"
+                  disabled={product.stock <= 0 || cartPlusDisabled}
+                  onClick={() => addItem(product._id)}
+                  aria-label="Add to Cart"
+                  title={product.stock <= 0 ? "Out of stock" : "Add to cart"}
+                >
                   Add to cart
                 </button>
                 <div className="shipping">

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link as ReactLink } from "react-router-dom";
+import Modal from "react-modal"; // Import react-modal
 import {
   addFavourites,
   removeFavourites,
@@ -19,35 +20,72 @@ const ProductCard = ({ product, loading }) => {
   const { favorites } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const [isShown, setIsShown] = useState(false);
-  const [cartPlusDisabled, setCartPlusDisabled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedQuantities, setSelectedQuantities] = useState({});
 
   useEffect(() => {
-    const item = cartItems.find((cartItem) => cartItem.id === product._id);
-    setCartPlusDisabled(item && item.qty === product.stock);
-  }, [product, cartItems]);
+    let defaultQuantities = {};
+    product.variants?.forEach((variant) => {
+      defaultQuantities[variant.id] = 0;
+    });
+    setSelectedQuantities(defaultQuantities);
+  }, [product]);
 
-  const addItem = (id) => {
-    if (cartItems.some((cartItem) => cartItem.id === id)) {
-      alert("Item is already in the cart!");
+  const handleQuantityChange = (variantId, amount) => {
+    setSelectedQuantities((prev) => ({
+      ...prev,
+      [variantId]: Math.max(0, (prev[variantId] || 0) + amount),
+    }));
+  };
+
+  const handleAddToCart = () => {
+    if (product.variants && product.variants.length > 0) {
+      setShowModal(true);
     } else {
-      dispatch(addCartItem(id, 1));
-      toast.success("Product added successfully!", {
-        position: "top-right",
-        autoClose: 3000,
-        closeOnClick: true,
-      });
+      dispatch(addCartItem(product._id, 1));
+      toast.success("Product added to cart!");
     }
   };
+
+  const handleConfirmSelection = () => {
+    let selectedItems = Object.entries(selectedQuantities)
+      .filter(([_, qty]) => qty > 0)
+      .map(([variantId, qty]) => ({
+        id: product._id,
+        variantId,
+        qty,
+      }));
+
+    if (selectedItems.length > 0) {
+      selectedItems.forEach((item) => {
+        dispatch(addCartItem(item.id, item.qty, item.variantId));
+      });
+
+      toast.success("Items added to cart!");
+      setShowModal(false);
+    } else {
+      alert("Please select at least one variant.");
+    }
+  };
+
   return (
     <section className="product_card" loading={!loading}>
       <figure>
         <img
-          src={product.images[
-            isShown && product.images.length === 2 ? 1 : 0
-          ].replace(/\\/g, "/")}
+          src={
+            product.images.length > 1 ? product.images[1] : product.images[0]
+          } // Show second image first
           alt={product.name}
-          onMouseEnter={() => setIsShown(true)}
-          onMouseLeave={() => setIsShown(false)}
+          onMouseEnter={
+            (e) => (e.target.src = product.images[0]) // Switch to first image on hover
+          }
+          onMouseLeave={
+            (e) =>
+              (e.target.src =
+                product.images.length > 1
+                  ? product.images[1]
+                  : product.images[0]) // Switch back to second image
+          }
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = Fallbackimg;
@@ -70,9 +108,7 @@ const ProductCard = ({ product, loading }) => {
         )}
       </span>
 
-      <h3 title={`${product.brand} ${product.name}`}>
-        {truncateCombined(product.name, product.brand, 15)}
-      </h3>
+      <h3 title={product.name}>{truncateCombined(product.name, "", 15)}</h3>
 
       <span className="card_price">
         <p>{product.category}</p>
@@ -97,14 +133,60 @@ const ProductCard = ({ product, loading }) => {
         </ReactLink>
 
         <button
-          disabled={product.stock <= 0 || cartPlusDisabled}
-          onClick={() => addItem(product._id)}
+          disabled={product.stock <= 0}
+          onClick={handleAddToCart}
           aria-label="Add to Cart"
           title={product.stock <= 0 ? "Out of stock" : "Add to cart"}
         >
           <FaShoppingCart size={24} />
         </button>
       </span>
+
+      {/* Variant Selection Modal */}
+      <Modal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        className="modal-content"
+        overlayClassName="modal-overlay"
+      >
+        <div className="modal-header">
+          <p>Select a variation</p>
+          <button className="modal-close" onClick={() => setShowModal(false)}>
+            ×
+          </button>
+        </div>
+
+        <div className="variant-list">
+          {product.variants?.map((variant) => (
+            <div key={variant.id} className="variant-item">
+              <span>
+                {variant.specification} <br /> ₦{variant.price}
+              </span>
+              <div className="qty-controls">
+                <button
+                  onClick={() => handleQuantityChange(variant.id, -1)}
+                  disabled={selectedQuantities[variant.id] <= 0}
+                >
+                  -
+                </button>
+                <span>{selectedQuantities[variant.id] || 0}</span>
+                <button onClick={() => handleQuantityChange(variant.id, 1)}>
+                  +
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="modal-actions">
+          <button className="continue-btn" onClick={() => setShowModal(false)}>
+            Continue Shopping
+          </button>
+          <button className="cart-btn" onClick={handleConfirmSelection}>
+            Go to Cart
+          </button>
+        </div>
+      </Modal>
     </section>
   );
 };
