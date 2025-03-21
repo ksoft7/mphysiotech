@@ -8,16 +8,16 @@ import {
   setProduct,
   productReviewed,
   resetError,
-  ProductCreatedSuccess,
 } from "../../redux/slices/product.js";
 import axios from "axios";
 
-const API_URL = "https://mphysiotech-backend.onrender.com/api/products";
+import { API_URL } from "../../components/constant.js";
+const Base_URL = `${API_URL}/products`;
 
 export const getProducts = (page, favouriteToggle) => async (dispatch) => {
   dispatch(setLoading());
   try {
-    const { data } = await axios.get(`${API_URL}/${page}/${12}`);
+    const { data } = await axios.get(`${Base_URL}/${page}/${12}`);
     const { products, pagination } = data;
     dispatch(setProducts(products));
     dispatch(setPagination(pagination));
@@ -33,57 +33,6 @@ export const getProducts = (page, favouriteToggle) => async (dispatch) => {
     );
   }
 };
-
-export const createProductPost = (newPost) => async (dispatch) => {
-  try {
-    dispatch(setLoading(true));
-
-    const adminInfo = JSON.parse(sessionStorage.getItem("adminInfo"));
-
-    if (!adminInfo || !adminInfo.token) {
-      dispatch(setError("Admin token not found. Please log in as an admin."));
-      return;
-    }
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${adminInfo.token}`,
-      },
-    };
-    const { data } = await axios.post(`${API_URL}`, newPost, config);
-    dispatch(ProductCreatedSuccess(data));
-  } catch (error) {
-    dispatch(
-      setError(error.response?.data?.message || "Failed to create Product")
-    );
-  }
-};
-
-export const updateProduct =
-  (id, brand, name, category, stock, price, productIsNew, description) =>
-  async (dispatch) => {
-    try {
-      const adminInfo = JSON.parse(sessionStorage.getItem("adminInfo"));
-      if (!adminInfo || !adminInfo.token) {
-        throw new Error("No token, not authorized");
-      }
-
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${adminInfo.token}`,
-        },
-      };
-
-      const { data } = await axios.put(
-        `${API_URL}/${id}`,
-        { brand, name, category, stock, price, productIsNew, description },
-        config
-      );
-    } catch (error) {
-      console.error("Error updating product: ", error);
-    }
-  };
 
 export const addFavourites = (id) => async (dispatch, getState) => {
   const {
@@ -122,7 +71,7 @@ export const toggleFavorites = (toggle) => (dispatch, getState) => {
 export const getProduct = (id) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(`${API_URL}/${id}`);
+    const { data } = await axios.get(`${Base_URL}/${id}`);
     dispatch(setProduct(data));
   } catch (error) {
     dispatch(
@@ -151,7 +100,7 @@ export const createProductReview =
       };
 
       await axios.post(
-        `${API_URL}/reviews/${productId}`,
+        `${Base_URL}/reviews/${productId}`,
         { comment, userId, rating, title },
         config
       );

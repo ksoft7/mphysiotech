@@ -8,12 +8,13 @@ import {
   clearCart,
 } from "../slices/cart.js";
 
-const API_URL = "https://mphysiotech-backend.onrender.com/api/products";
+import { API_URL } from "../../components/constant.js";
+const Base_URL = `${API_URL}/products`;
 
 export const addCartItem = (id, qty) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(`${API_URL}/${id}`);
+    const { data } = await axios.get(`${Base_URL}/${id}`);
     if (!data || !data._id) {
       throw new Error("Product data is missing or invalid");
     }

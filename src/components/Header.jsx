@@ -116,8 +116,13 @@ function Header() {
                           <ReactLink to={"/order-history"}>
                             <p className="dropdown-item">Order History</p>
                           </ReactLink>
-                          <ReactLink to={"/profile"}>
+                          <ReactLink to={"/editProfile"}>
                             <p className="dropdown-item">Profile</p>
+                          </ReactLink>
+                          <ReactLink to={"/settings"}>
+                            <p className="dropdown-item">
+                              <IoSettingsOutline /> Settings
+                            </p>
                           </ReactLink>
 
                           <div className="dropdown-item">

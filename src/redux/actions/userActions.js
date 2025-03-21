@@ -15,7 +15,8 @@ import {
 
 import { clearCart } from "../slices/cart.js";
 
-const API_URL = "https://mphysiotech-backend.onrender.com/api/users";
+import { API_URL } from "../../components/constant.js";
+const Base_URL = `${API_URL}/users`;
 
 export const updateUserProfile =
   (updatedUser) => async (dispatch, getState) => {
@@ -31,7 +32,7 @@ export const updateUserProfile =
       };
 
       const { data } = await axios.patch(
-        `${API_URL}/updateUser`,
+        `${Base_URL}/updateUser`,
         updatedUser,
         config
       );
@@ -56,7 +57,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `${API_URL}/login`,
+      `${Base_URL}/login`,
       { email, password },
       config
     );
@@ -87,7 +88,7 @@ export const logout = () => async (dispatch) => {
     }
 
     await axios.post(
-      `${API_URL}/logout`,
+      `${Base_URL}/logout`,
       {},
       {
         headers: {
@@ -111,7 +112,7 @@ export const register = (name, email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `${API_URL}/register`,
+      `${Base_URL}/register`,
       { name, email, password },
       config
     );
@@ -136,7 +137,7 @@ export const verifyEmail = (token) => async (dispatch) => {
 
   try {
     // Add token to the Authorization header
-    const { data } = await axios.get(`${API_URL}/verify-email`, {
+    const { data } = await axios.get(`${Base_URL}/verify-email`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -165,7 +166,7 @@ export const sendResetEmail = (email) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data, status } = await axios.post(
-      `${API_URL}/password-reset-request`,
+      `${Base_URL}/password-reset-request`,
       { email },
       config
     );
@@ -195,7 +196,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${API_URL}/password-reset/${token}`, // Token in URL
+      `${Base_URL}/password-reset/${token}`, // Token in URL
       { password },
       config
     );
@@ -220,7 +221,7 @@ export const googleLogin =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.post(
-        `${API_URL}/google-login`,
+        `${Base_URL}/google-login`,
         { googleId, email, name, googleImage },
         config
       );

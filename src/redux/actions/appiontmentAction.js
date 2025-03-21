@@ -9,8 +9,8 @@ import {
   cancelAppointment,
   deleteAppointment,
 } from "../slices/appointment.js";
-
-const API_URL = "https://mphysiotech-backend.onrender.com/api/appointments"; // ✅ Fixed trailing slash issue
+import { API_URL } from "../../components/constant.js";
+const Base_URL = `${API_URL}/appointments`; // ✅ Fixed trailing slash issue
 
 // ✅ Fetch Appointments
 export const fetchAppointments = () => async (dispatch, getState) => {
@@ -22,7 +22,7 @@ export const fetchAppointments = () => async (dispatch, getState) => {
 
     const config = { headers: { Authorization: `Bearer ${token}` } };
 
-    const { data } = await axios.get(`${API_URL}/myAppiontment`, config);
+    const { data } = await axios.get(`${Base_URL}/myAppiontment`, config);
     dispatch(setAppointments(data.appointments));
   } catch (error) {
     dispatch(
@@ -53,7 +53,7 @@ export const createAppointment =
         },
       };
 
-      await axios.post(API_URL, appointmentData, config);
+      await axios.post(Base_URL, appointmentData, config);
 
       dispatch(createAppointmentSuccess());
     } catch (error) {
@@ -78,7 +78,7 @@ export const cancelUserAppointment =
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       const { data } = await axios.put(
-        `${API_URL}/cancelAppointment/${appointmentId}`,
+        `${Base_URL}/cancelAppointment/${appointmentId}`,
         {},
         config
       );
@@ -106,7 +106,7 @@ export const deleteUserAppointment =
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       await axios.delete(
-        `${API_URL}/deleteMyAppointment/${appointmentId}`,
+        `${Base_URL}/deleteMyAppointment/${appointmentId}`,
         config
       );
 

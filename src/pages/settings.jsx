@@ -6,8 +6,21 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { PiSignOutBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import "../styles/settings.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/actions/userActions";
+import { toast } from "react-toastify";
 import "../App.css";
-function settings() {
+function Settings() {
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      await dispatch(logout()); // make sure logout returns a promise
+      toast.success("Logged out successfully!");
+    } catch (err) {
+      toast.error("Failed to logout. Please try again.");
+    }
+  };
   return (
     <>
       <div className="settingHead">
@@ -39,7 +52,7 @@ function settings() {
           </h3>
         </Link>
         <span>
-          <button>
+          <button style={{ cursor: "pointer" }} onClick={handleLogout}>
             <PiSignOutBold className="icon" /> Log Out
           </button>
         </span>
@@ -48,4 +61,4 @@ function settings() {
   );
 }
 
-export default settings;
+export default Settings;
