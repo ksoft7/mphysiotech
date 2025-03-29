@@ -87,10 +87,11 @@ export const getProduct = (id) => async (dispatch) => {
 };
 
 export const createProductReview =
-  (productId, userId, comment, rating, title) => async (dispatch, getState) => {
+  (productId, comment, rating) => async (dispatch, getState) => {
     const {
       user: { userInfo },
     } = getState();
+
     try {
       const config = {
         headers: {
@@ -101,18 +102,17 @@ export const createProductReview =
 
       await axios.post(
         `${Base_URL}/reviews/${productId}`,
-        { rating, comment, userId },
+        { rating, comment },
         config
       );
+
       dispatch(productReviewed(true));
     } catch (error) {
       dispatch(
         setError(
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message
-            ? error.message
-            : "An expected error has occured. Please try again later."
+          error.response?.data?.message ||
+            error.message ||
+            "An unexpected error occurred. Please try again later."
         )
       );
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
-import { BiCheckShield, BiPackage, BiSupport } from "react-icons/bi";
+import { BiPackage, BiSupport } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
