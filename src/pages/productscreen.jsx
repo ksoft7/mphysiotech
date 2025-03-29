@@ -25,23 +25,6 @@ const Productscreen = () => {
   const { userInfo } = useSelector((state) => state.user);
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const item = cartItems.find((cartItem) => cartItem.id === product.id);
-  //   setCartPlusDisabled(item && item.qty === product.stock);
-  // }, [product, cartItems]);
-
-  // const addItem = (id) => {
-  //   if (cartItems.some((cartItem) => cartItem.id === id)) {
-  //     alert("Item is already in the cart!");
-  //   } else {
-  //     dispatch(addCartItem(id, 1));
-  //     toast.success("Product added successfully!", {
-  //       position: "top-right",
-  //       autoClose: 3000,
-  //       closeOnClick: true,
-  //     });
-  //   }
-  // };
   useEffect(() => {
     dispatch(getProduct(id));
     setReviewBoxOpen(false);

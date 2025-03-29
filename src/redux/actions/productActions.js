@@ -101,7 +101,7 @@ export const createProductReview =
 
       await axios.post(
         `${Base_URL}/reviews/${productId}`,
-        { comment, userId, rating, title },
+        { rating, comment, userId },
         config
       );
       dispatch(productReviewed(true));
