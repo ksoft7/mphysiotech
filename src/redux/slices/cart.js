@@ -22,7 +22,9 @@ export const initialState = {
   cartItems: loadFromLocalStorage("cartItems", [])
     .map((product) => ({
       ...product,
-      variants: product.variants.filter((v) => v.stock !== "out of stock"),
+      variants: product.variants.filter(
+        (v) => v.variantAvailable !== "out of stock"
+      ),
     }))
     .filter((product) => product.variants.length > 0),
   shipping: loadFromLocalStorage("shipping", 4.99),
@@ -30,7 +32,9 @@ export const initialState = {
     loadFromLocalStorage("cartItems", [])
       .map((product) => ({
         ...product,
-        variants: product.variants.filter((v) => v.stock !== "out of stock"),
+        variants: product.variants.filter(
+          (v) => v.variantAvailable !== "out of stock"
+        ),
       }))
       .filter((product) => product.variants.length > 0)
   ),
@@ -56,7 +60,7 @@ export const cartSlice = createSlice({
     },
     cartItemAdd: (state, { payload }) => {
       // 1. Don't add if out of stock
-      if (payload.stock === "out of stock") {
+      if (payload.stock === 0) {
         return;
       }
 
@@ -101,7 +105,7 @@ export const cartSlice = createSlice({
         .map((item) => ({
           ...item,
           variants: item.variants.filter(
-            (variant) => variant.stock !== "out of stock"
+            (variant) => variant.variantAvailable !== "out of stock"
           ),
         }))
         .filter((item) => item.variants.length > 0);

@@ -29,7 +29,7 @@ export const addCartItem =
       const variant = product.variants?.find((v) => v.id === variantId);
 
       // If the variant exists but is out of stock, skip adding
-      if (variant && variant.stock === "out of stock") {
+      if (variant && variant.variantAvailable === "out of stock") {
         console.warn("❌ Cannot add variant — it's out of stock.");
         return;
       }

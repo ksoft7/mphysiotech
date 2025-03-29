@@ -28,10 +28,10 @@ const CartItem = ({ cartItem }) => {
                   <strong>{variant.specification}</strong>
                   <span
                     className={`stock-status ${
-                      variant.stock === "out of stock" ? "out" : "in"
+                      variant.variantAvailable === "out of stock" ? "out" : "in"
                     }`}
                   >
-                    {variant.stock === "out of stock"
+                    {variant.variantAvailable === "out of stock"
                       ? "Out of stock"
                       : "In stock"}
                   </span>
