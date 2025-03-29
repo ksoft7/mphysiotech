@@ -1,48 +1,57 @@
 import React from "react";
-import "../../App.css";
 import { useDispatch } from "react-redux";
-import { addCartItem, removeCartItem } from "../../redux/actions/CartActions";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { removeCartItemThunk } from "../../redux/actions/CartActions.js";
+import { FaRegTrashCan } from "react-icons/fa6";
 
-const Cartitem = ({ cartItem }) => {
-  const { name, image, price, stock, qty, id, brand } = cartItem;
-  console.log(qty);
+const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
+
+  const handleRemoveVariant = (variantId) => {
+    dispatch(removeCartItemThunk(cartItem.id, variantId));
+  };
 
   return (
     <div className="cart-item">
-      <figure>
-        <img src={image} alt={name} />
-      </figure>
+      <img src={cartItem.image} alt={cartItem.name} className="cart-item-img" />
 
-      <article>
-        <div>
-          <h3>
-            {name} {brand}
-          </h3>
-          <button onClick={() => dispatch(removeCartItem(id))}>
-            <FaRegTrashAlt />
-          </button>
-        </div>
+      <div className="cart-item-details">
+        <h4 className="cart-item-name">{cartItem.name}</h4>
 
-        <div className="quantity">
-          <select
-            value={String(qty)}
-            onChange={(e) => {
-              dispatch(addCartItem(id, Number(e.target.value)));
-            }}
-          >
-            {[...Array(stock).keys()].map((item) => (
-              <option key={item + 1} value={item + 1}>
-                {item + 1}
-              </option>
+        {cartItem.variants && cartItem.variants.length > 0 && (
+          <div className="cart-item-variants">
+            {cartItem.variants.map((variant, index) => (
+              <div
+                key={`${variant.variantId || `default-${index}`}`}
+                className="cart-variant-row"
+              >
+                <div className="variant-details">
+                  <strong>{variant.specification}</strong>
+                  <span
+                    className={`stock-status ${
+                      variant.stock === "out of stock" ? "out" : "in"
+                    }`}
+                  >
+                    {variant.stock === "out of stock"
+                      ? "Out of stock"
+                      : "In stock"}
+                  </span>
+                  {variant.qty} × ₦{variant.price.toLocaleString()} =
+                  <strong>
+                    ₦{(variant.qty * variant.price).toLocaleString()}
+                  </strong>
+                </div>
+
+                <FaRegTrashCan
+                  className="remove-icon"
+                  onClick={() => handleRemoveVariant(variant.variantId)}
+                />
+              </div>
             ))}
-          </select>
-          <p>${price}</p>
-        </div>
-      </article>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Cartitem;
+export default CartItem;

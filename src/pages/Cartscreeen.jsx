@@ -8,25 +8,33 @@ import Spinner from "../components/reusables/Spinner";
 
 function Cartscreeen() {
   const { loading, error, cartItems } = useSelector((state) => state.cart);
-
   const navigate = useNavigate();
 
-  // Calculate the total price
-  const totalAmount = cartItems.reduce(
-    (acc, item) => acc + item.price * item.qty,
-    0
+  // ✅ Calculate total from all variants
+  const totalAmount = cartItems.reduce((acc, product) => {
+    return (
+      acc +
+      product.variants.reduce(
+        (variantTotal, v) => variantTotal + v.price * v.qty,
+        0
+      )
+    );
+  }, 0);
+
+  // ✅ Flatten product-variant combinations for checkout
+  const selectedProducts = cartItems.flatMap((product) =>
+    product.variants.map((variant) => ({
+      id: product.id,
+      name: product.name,
+      variantId: variant.variantId,
+      specification: variant.specification,
+      qty: variant.qty,
+      price: variant.price,
+    }))
   );
 
-  // Prepare selected products for checkout
-  const selectedProducts = cartItems.map((item) => ({
-    id: item.id,
-    name: item.name,
-    qty: item.qty,
-    price: item.price,
-  }));
-
   const handleCheckout = () => {
-    if (cartItems.length > 0) {
+    if (selectedProducts.length > 0) {
       navigate("/checkout", {
         state: {
           amount: totalAmount,
@@ -43,7 +51,7 @@ function Cartscreeen() {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <p>error</p>
+        <p style={{ color: "red", textAlign: "center" }}>An error occurred</p>
       ) : cartItems.length <= 0 ? (
         <div style={{ textAlign: "center", marginTop: "15rem" }}>
           <h1>Your cart is empty</h1>
@@ -56,6 +64,7 @@ function Cartscreeen() {
               <CartItem key={cartItem.id} cartItem={cartItem} />
             ))}
           </div>
+
           <div>
             <Ordersummary />
             <h3>Total Amount: ₦{totalAmount.toFixed(2)}</h3>

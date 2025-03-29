@@ -16,7 +16,7 @@ import { IoClose } from "react-icons/io5";
 import { IoAlertCircleSharp } from "react-icons/io5";
 
 const Links = [
-  { name: "Homepage", route: "/" },
+  { name: "Homepage", route: "/homepage" },
   { name: "About Us", route: "/aboutpage" },
   { name: "Store", route: "/products" },
   { name: "blog", route: "/blog" },

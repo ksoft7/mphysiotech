@@ -9,50 +9,77 @@ import {
 } from "../slices/cart.js";
 
 import { API_URL } from "../../components/constant.js";
+
 const Base_URL = `${API_URL}/products`;
 
-export const addCartItem = (id, qty) => async (dispatch) => {
-  dispatch(setLoading(true));
-  try {
-    const { data } = await axios.get(`${Base_URL}/${id}`);
-    if (!data || !data._id) {
-      throw new Error("Product data is missing or invalid");
+// Add item to cart with optional variant
+export const addCartItem =
+  (productId, qty, variantId = "") =>
+  async (dispatch) => {
+    dispatch(setLoading(true));
+
+    try {
+      const { data: product } = await axios.get(`${Base_URL}/${productId}`);
+
+      if (!product?._id) {
+        throw new Error("Product data is missing or invalid");
+      }
+
+      // Check if variant exists
+      const variant = product.variants?.find((v) => v.id === variantId);
+
+      // If the variant exists but is out of stock, skip adding
+      if (variant && variant.stock === "out of stock") {
+        console.warn("❌ Cannot add variant — it's out of stock.");
+        return;
+      }
+
+      // Build payload for reducer
+      const itemToAdd = {
+        id: product._id,
+        name: product.name,
+        subtitle: product.subtitle,
+        image: product.images[0],
+        price: variant?.price ?? product.price,
+        brand: product.brand,
+        variantId: variant?.id ?? null,
+        specification: variant?.specification ?? null,
+        qty: Number(qty),
+        stock: variant?.stock ?? "in stock", // Include stock status
+      };
+
+      dispatch(cartItemAdd(itemToAdd));
+
+      console.log("🛒 Item added to cart:", itemToAdd);
+      if (variant) {
+        console.log("✅ Variant selected:", variant);
+      } else {
+        console.log("ℹ️ No variant selected — default product added");
+      }
+    } catch (error) {
+      dispatch(
+        setError(
+          error.response?.data?.message ||
+            error.message ||
+            "Something went wrong"
+        )
+      );
     }
-    const itemToAdd = {
-      id: data._id,
-      name: data.name,
-      subtitle: data.subtitle,
-      image: data.images[0],
-      price: data.price,
-      stock: data.stock,
-      brand: data.brand,
-      qty: Number(qty),
-      stripeId: data.stripeId,
-    };
-    dispatch(cartItemAdd(itemToAdd));
-    console.log("items added");
-  } catch (error) {
-    dispatch(
-      setError(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-          ? error.message
-          : "An error occurred. Please try again later."
-      )
-    );
-  }
-};
+  };
 
-export const removeCartItem = (id) => async (dispatch) => {
-  dispatch(setLoading(true));
-  dispatch(cartItemRemove(id));
-};
+// Remove variant from cart
+export const removeCartItemThunk =
+  (productId, variantId = "") =>
+  async (dispatch) => {
+    dispatch(cartItemRemove({ id: productId, variantId }));
+  };
 
+// Set shipping cost
 export const setShipping = (value) => async (dispatch) => {
   dispatch(setShippingCosts(value));
 };
 
+// Clear cart
 export const resetCart = () => async (dispatch) => {
-  dispatch(clearCart);
+  dispatch(clearCart());
 };

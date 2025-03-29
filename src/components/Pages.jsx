@@ -32,8 +32,9 @@ function Pages() {
     <div>
       <FixedBarProvider>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Navigate to="/products" replace />} />
           <Route path="/products" element={<ProductsScreen />} />
+          <Route path="/homepage" element={<Homepage />} />
           <Route path="/register-page" element={<RegisterPage />} />
           <Route path="/verify-email/:token" element={<EmailVerification />} />
           <Route path="/login-page" element={<LoginPage />} />

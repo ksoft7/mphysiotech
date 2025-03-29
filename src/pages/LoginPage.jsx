@@ -9,10 +9,10 @@ import TextField from "../components/TextField";
 import Alert from "../components/reusables/Alert";
 import "../styles/submissionsty.css";
 import { toast } from "react-toastify";
-import { useGoogleLogin } from "@react-oauth/google";
-import { login, googleLogin } from "../redux/actions/userActions";
-import axios from "axios";
-import { FcGoogle } from "react-icons/fc";
+// import { useGoogleLogin } from "@react-oauth/google";
+import { login } from "../redux/actions/userActions";
+// import axios from "axios";
+// import { FcGoogle } from "react-icons/fc";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -38,18 +38,18 @@ const LoginScreen = () => {
     }
   }, [userInfo, redirect, navigate, location.state, serverMsg]);
 
-  const handleGoogleLogin = useGoogleLogin({
-    onSuccess: async (response) => {
-      const userInfo = await axios
-        .get("https://www.googleapis.com/oauth2/v3/userinfo", {
-          headers: { Authorization: `Bearer ${response.access_token}` },
-        })
-        .then((res) => res.data);
-      const { sub, email, name, googleImage } = userInfo;
-      dispatch(googleLogin(sub, email, name, googleImage));
-      // console.log(userInfo);
-    },
-  });
+  // const handleGoogleLogin = useGoogleLogin({
+  //   onSuccess: async (response) => {
+  //     const userInfo = await axios
+  //       .get("https://www.googleapis.com/oauth2/v3/userinfo", {
+  //         headers: { Authorization: `Bearer ${response.access_token}` },
+  //       })
+  //       .then((res) => res.data);
+  //     const { sub, email, name, googleImage } = userInfo;
+  //     dispatch(googleLogin(sub, email, name, googleImage));
+  //     // console.log(userInfo);
+  //   },
+  // });
 
   return (
     <Formik
@@ -120,13 +120,13 @@ const LoginScreen = () => {
                 <button className="submitform" type="submit" disabled={loading}>
                   {loading ? "Signing in..." : "Sign in"}
                 </button>
-                <button
+                {/* <button
                   className="submitform"
                   onClick={() => handleGoogleLogin()}
                   disabled={loading}
                 >
                   <FcGoogle /> Google Sign in
-                </button>
+                </button> */}
               </form>
             </div>
           </article>
