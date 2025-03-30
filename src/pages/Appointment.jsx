@@ -16,10 +16,8 @@ function Appointment() {
   );
 
   const [formData, setFormData] = useState({
-    fName: "",
-    lName: "",
+    name: "",
     email: "",
-    phoneNumber: "",
     date: "",
     time: "",
     message: "",
@@ -29,10 +27,8 @@ function Appointment() {
   useEffect(() => {
     if (appointmentCreated) {
       setFormData({
-        fName: "",
-        lName: "",
+        name: "",
         email: "",
-        phoneNumber: "",
         date: "",
         time: "",
         message: "",
@@ -80,17 +76,9 @@ function Appointment() {
         <div className="inputHol">
           <input
             type="text"
-            name="fName"
-            placeholder="First Name"
-            value={formData.fName}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="lName"
-            placeholder="Last Name"
-            value={formData.lName}
+            name="name"
+            placeholder="Name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -99,14 +87,6 @@ function Appointment() {
             name="email"
             placeholder="Email"
             value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="tel"
-            name="phoneNumber"
-            placeholder="Phone Number"
-            value={formData.phoneNumber}
             onChange={handleChange}
             required
           />

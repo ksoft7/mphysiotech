@@ -29,7 +29,7 @@ function Productscreen() {
 
   const handleAddToCart = (product) => {
     if (product.variants?.length > 0) {
-      setSelectedProduct(product); // No normalization needed
+      setSelectedProduct(product);
     } else {
       dispatch(addCartItem(product._id, 1));
       toast.success("Product added to cart!");
