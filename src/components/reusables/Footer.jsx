@@ -67,14 +67,9 @@ function Footer() {
 
         <ul>
           <h4>How Can Help</h4>
+
           <li>
             <FaChevronRight className="icon" />
-
-            <Link to={"/"}>Homepage</Link>
-          </li>
-          <li>
-            <FaChevronRight className="icon" />
-
             <Link to={"/aboutpage"}>About Us</Link>
           </li>
           <li>
@@ -83,17 +78,14 @@ function Footer() {
           </li>
           <li>
             <FaChevronRight className="icon" />
-
             <Link to={"/blog"}>Blog & Article</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-
             <Link to={"/testimonials"}>Testimonials</Link>
           </li>
           <li>
             <FaChevronRight className="icon" />
-
             <Link to={"/faq"}>FAQ</Link>
           </li>
         </ul>

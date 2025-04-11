@@ -150,7 +150,7 @@ export const verifyEmail = (token) => async (dispatch) => {
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
     }
 
-    console.log(data.message);
+    console.log(userInfo);
   } catch (error) {
     dispatch(
       setError(

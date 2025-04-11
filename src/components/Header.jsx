@@ -16,11 +16,9 @@ import { IoClose } from "react-icons/io5";
 import { IoAlertCircleSharp } from "react-icons/io5";
 
 const Links = [
-  { name: "Homepage", route: "/homepage" },
-  { name: "About Us", route: "/aboutpage" },
   { name: "Store", route: "/products" },
+  { name: "About Us", route: "/aboutpage" },
   { name: "blog", route: "/blog" },
-  { name: "Contact-us", route: "/contact-us" },
 ];
 
 function Header() {
@@ -90,17 +88,7 @@ function Header() {
             <div>
               {userInfo ? (
                 <article className="headercont">
-                  {userInfo.googleImage ? (
-                    <img
-                      src={`${userInfo.googleImage}`}
-                      alt={userInfo.name}
-                      onError={(e) => {
-                        e.target.src = "/default-avatar.png"; // Fallback image in case of error
-                      }}
-                    />
-                  ) : (
-                    <FaUserCheck size={22} />
-                  )}
+                  <FaUserCheck size={22} />
                   <div className={`dropdown ${showDropdown ? "show" : ""}`}>
                     <FaCaretDown
                       cursor={"pointer"}
@@ -132,7 +120,6 @@ function Header() {
                       </ul>
                     )}
                   </div>
-
                   <div className="menu-container">
                     <button className="hamburger"></button>
                     <RxHamburgerMenu
@@ -225,11 +212,6 @@ function Header() {
                                 <button className="btn-style">
                                   Appointment
                                 </button>
-                              </ReactLink>
-                            </li>
-                            <li>
-                              <ReactLink to={"/settings"}>
-                                <IoSettingsOutline className="icon" /> Settings
                               </ReactLink>
                             </li>
                           </ul>

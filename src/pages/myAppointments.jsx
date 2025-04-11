@@ -65,9 +65,6 @@ function MyAppointments() {
             const day = date.getDate();
             const month = date.toLocaleDateString("en-US", { month: "long" }); // Extract full month (e.g., February)
             return (
-              // <strong>
-              //   {apt.fName} {apt.lName}
-              // </strong>
               <div key={apt._id} className="appointment-card">
                 <article>
                   <span>
