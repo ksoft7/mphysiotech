@@ -15,6 +15,7 @@ import "../styles/productSty.css";
 function Productscreen() {
   const dispatch = useDispatch();
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { loading, error, products, pagination, favoritesToggled } =
     useSelector((state) => state.product);
@@ -39,13 +40,18 @@ function Productscreen() {
   return (
     <>
       <section className="proSearch">
-        <h3>All categories</h3>
-        <form action="#">
-          <input type="search" name="search" placeholder="Enter your search" />
+        <div>
+          <input
+            type="search"
+            name="search"
+            placeholder="Enter your search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
           <button type="submit">
             <IoSearchOutline />
           </button>
-        </form>
+        </div>
 
         <span>
           {favoritesToggled ? (
@@ -65,15 +71,19 @@ function Productscreen() {
           {error ? (
             <div>{error}</div>
           ) : (
-            products.map((product) => (
-              <section key={product._id}>
-                <ProductCard
-                  product={product}
-                  loading={loading}
-                  onAddToCart={() => handleAddToCart(product)}
-                />
-              </section>
-            ))
+            products
+              .filter((product) =>
+                product.name.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((product) => (
+                <section key={product._id}>
+                  <ProductCard
+                    product={product}
+                    loading={loading}
+                    onAddToCart={() => handleAddToCart(product)}
+                  />
+                </section>
+              ))
           )}
         </div>
       )}
@@ -106,7 +116,7 @@ function Productscreen() {
       )}
 
       <div className="paginationbtn">
-        <button onClick={() => paginationButtonClick(1)}>
+        <button className="clickbtn" onClick={() => paginationButtonClick(1)}>
           <FaAnglesLeft />
         </button>
         {Array.from(Array(pagination.totalPages), (_, i) => (
@@ -127,7 +137,10 @@ function Productscreen() {
             {i + 1}
           </button>
         ))}
-        <button onClick={() => paginationButtonClick(pagination.totalPages)}>
+        <button
+          className="clickbtn"
+          onClick={() => paginationButtonClick(pagination.totalPages)}
+        >
           <FaAnglesRight />
         </button>
       </div>

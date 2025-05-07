@@ -75,7 +75,7 @@ const ProductCard = ({ product, loading, onAddToCart }) => {
 
         <ReactLink to={`/product/${product._id}`}>
           <button className="proid">
-            <BiExpand size={24} color="blue" />
+            <BiExpand size={24} />
           </button>
         </ReactLink>
 

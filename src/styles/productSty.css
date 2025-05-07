@@ -1,28 +1,3 @@
-:root {
-  --banner-color: #07a4b5;
-  --banner-color_dark: #038796;
-  --banner-hover-color: #028593;
-  --secondary-light: #ecf3f4;
-  --primary-dark: #969393;
-  --secondary-linear-gradient: linear-gradient(
-    90deg,
-    rgba(12, 12, 12, 0.7) 0%,
-    rgba(11, 10, 10, 0.48) 50.4%,
-    rgba(162, 162, 162, 0.329) 100%
-  );
-  --big-font-size: 70px;
-  --medium-font-size: 48px;
-  --sm2-font-size: 20px;
-  --h5-size: 24px;
-  --sm-font-size: 18px;
-  --fontColor-primary-light: #f9fcfd;
-  --fontColor-primary-dark: #504e4e;
-  --text-color: #ffcb89;
-  --border-radius-sm: 8px;
-  --btn-text-color: #f9fcfd;
-  --general-font-family: "Buenard", serif;
-}
-
 .proSearch {
   margin-top: 9rem;
   padding: 3rem 4rem;
@@ -33,25 +8,17 @@
   gap: 3rem;
 }
 
-.proSearch h3 {
-  font-size: var(--sm-font-size);
-  color: var(--fontColor-primary-light);
-  font-family: var(--general-font-family);
-  font-weight: 400;
-  flex: 1;
-}
-
-.proSearch form {
+.proSearch div {
   flex: 1;
   display: flex;
   align-items: center;
   height: 4rem;
-  border-radius: 19px;
+  border-radius: 8px;
   background-color: #ffffff;
   overflow: hidden;
 }
 
-.proSearch form input {
+.proSearch div input {
   height: 100%;
   flex: 1;
   background-color: transparent;
@@ -60,7 +27,7 @@
   padding: 0 1.5rem;
 }
 
-.proSearch form button {
+.proSearch div button {
   height: 100%;
   background-color: #ecf3f4;
   padding: 0 1rem;
@@ -80,4 +47,32 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .proSearch span {
+    flex: 0;
+  }
+
+  .proSearch div button {
+    padding-right: 3rem;
+    font-size: 1.7rem;
+  }
+
+  .proSearch div input {
+    flex: 1;
+    padding: 0 0;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 339px) {
+  .proSearch {
+    padding: 3rem 2rem;
+  }
+
+  .proSearch div button {
+    padding-right: 2rem;
+    font-size: 1.7rem;
+  }
 }

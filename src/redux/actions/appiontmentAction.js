@@ -10,9 +10,8 @@ import {
   deleteAppointment,
 } from "../slices/appointment.js";
 import { API_URL } from "../../components/constant.js";
-const Base_URL = `${API_URL}/appointments`; // ✅ Fixed trailing slash issue
+const Base_URL = `${API_URL}/appointments`;
 
-// ✅ Fetch Appointments
 export const fetchAppointments = () => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
@@ -35,7 +34,6 @@ export const fetchAppointments = () => async (dispatch, getState) => {
   }
 };
 
-// ✅ Create Appointment
 export const createAppointment =
   (appointmentData) => async (dispatch, getState) => {
     dispatch(setLoading(true));
@@ -67,7 +65,6 @@ export const createAppointment =
     }
   };
 
-// ✅ Cancel Appointment
 export const cancelUserAppointment =
   (appointmentId) => async (dispatch, getState) => {
     dispatch(setLoading(true));
@@ -95,7 +92,6 @@ export const cancelUserAppointment =
     }
   };
 
-// ✅ Delete Appointment
 export const deleteUserAppointment =
   (appointmentId) => async (dispatch, getState) => {
     dispatch(setLoading(true));

@@ -372,6 +372,7 @@ header .btn-style {
   width: 3rem;
   padding: 0.2rem 0;
   border-radius: 3px;
+  color: #000;
   cursor: pointer;
 }
 
@@ -553,6 +554,19 @@ header .btn-style {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin: 1rem 0;
+}
+
+.paginationbtn .clickbtn {
+  background-color: var(--banner-color);
+  border: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* aboutCard */
