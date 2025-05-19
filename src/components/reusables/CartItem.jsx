@@ -26,7 +26,8 @@ const CartItem = ({ cartItem }) => {
               >
                 <div className="variant-details">
                   <strong>{variant.specification}</strong>
-                  <span
+                  &nbsp;
+                  {/* <span
                     className={`stock-status ${
                       variant.variantAvailable === "out of stock" ? "out" : "in"
                     }`}
@@ -34,8 +35,8 @@ const CartItem = ({ cartItem }) => {
                     {variant.variantAvailable === "out of stock"
                       ? "Out of stock"
                       : "In stock"}
-                  </span>
-                  {variant.qty} × ₦{variant.price.toLocaleString()} =
+                  </span> */}
+                  {variant.qty} × ₦{variant.price.toLocaleString()} = &nbsp;
                   <strong>
                     ₦{(variant.qty * variant.price).toLocaleString()}
                   </strong>

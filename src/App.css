@@ -857,7 +857,8 @@ header .btn-style {
 }
 
 .move {
-  margin: 10rem;
+  margin: 10rem 0;
+  width: 100%;
 }
 
 /* ordersty */
@@ -898,7 +899,7 @@ header .btn-style {
   color: var(--fontColor-primary-dark);
 }
 
-.ordersty button {
+.ordersty .checkout-btn {
   width: 100%;
   padding: 1rem 0;
   border-radius: 5px;
@@ -909,7 +910,7 @@ header .btn-style {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .btn-secondary {
@@ -929,34 +930,39 @@ header .btn-style {
   justify-content: center;
   gap: 4rem;
   flex-wrap: wrap;
-  /* border: 1px solid; */
 }
 
 .styitem_row {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
+  width: 100%;
+  flex: 1;
 }
 
 .cart-item {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem 2rem;
   padding-left: 0.7rem;
   align-items: flex-start;
-  border: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgb(150, 150, 150);
   background-color: #fff;
   width: 100%;
-  max-width: 450px;
-  border-radius: 8px;
+}
+
+.cart-item .remove-icon {
+  color: var(--banner-color);
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .cart-item-img {
-  width: 120px;
-  height: 110px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #ddd;
 }
 
 .cart-item h4 {
@@ -1608,6 +1614,10 @@ header .btn-style {
 @media (max-width: 441px) {
   .logo1 {
     width: 10rem;
+  }
+
+  .ordersty {
+    width: 100%;
   }
 
   .aboutCard form div input {
