@@ -44,7 +44,7 @@ function Footer() {
             <FaPhoneAlt className="icon" />
             <span>
               <h4>Phone</h4>
-              <p>+234-8161-756-637</p>
+              <p>+234-8139-436-133</p>
             </span>
           </div>
         </div>

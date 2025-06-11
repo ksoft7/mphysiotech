@@ -5,6 +5,7 @@ import { addCartItem } from "../redux/actions/CartActions.js";
 import ProductCard from "../components/reusables/ProductCard.jsx";
 import VariantSelector from "../utils/variantUtils.js";
 import { toast } from "react-toastify";
+import Spinner from "../components/reusables/Spinner.jsx";
 import { FaAnglesRight, FaAnglesLeft } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
@@ -66,28 +67,37 @@ function Productscreen() {
         </span>
       </section>
 
-      {products.length >= 1 && (
-        <div className="card_flex">
-          {error ? (
-            <div>{error}</div>
-          ) : (
-            products
-              .filter((product) =>
-                product.name.toLowerCase().includes(searchTerm.toLowerCase())
-              )
-              .map((product) => (
-                <section key={product._id}>
-                  <ProductCard
-                    product={product}
-                    loading={loading}
-                    onAddToCart={() => handleAddToCart(product)}
-                  />
-                </section>
-              ))
-          )}
+      {/* === HANDLE LOADING === */}
+      {loading && <Spinner />}
+
+      {/* === HANDLE ERROR === */}
+      {error && (
+        <div className="error-message">
+          <p>⚠️ Failed to load products. Please try again.</p>
+          <small>{error}</small>
         </div>
       )}
 
+      {/* === SHOW PRODUCTS === */}
+      {!loading && !error && products.length > 0 && (
+        <div className="card_flex">
+          {products
+            .filter((product) =>
+              product.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((product) => (
+              <section key={product._id}>
+                <ProductCard
+                  product={product}
+                  loading={loading}
+                  onAddToCart={() => handleAddToCart(product)}
+                />
+              </section>
+            ))}
+        </div>
+      )}
+
+      {/* === VARIANT SELECTOR === */}
       {selectedProduct && (
         <>
           <div
@@ -115,35 +125,38 @@ function Productscreen() {
         </>
       )}
 
-      <div className="paginationbtn">
-        <button className="clickbtn" onClick={() => paginationButtonClick(1)}>
-          <FaAnglesLeft />
-        </button>
-        {Array.from(Array(pagination.totalPages), (_, i) => (
-          <button
-            key={i}
-            onClick={() => paginationButtonClick(i + 1)}
-            style={{
-              backgroundColor:
-                pagination.currentPage === i + 1 ? "#07a4b5" : "#c9c7c7",
-              color: "white",
-              border: "none",
-              padding: "8px 10px",
-              margin: "4px",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
-          >
-            {i + 1}
+      {/* === PAGINATION === */}
+      {!loading && !error && pagination?.totalPages > 1 && (
+        <div className="paginationbtn">
+          <button className="clickbtn" onClick={() => paginationButtonClick(1)}>
+            <FaAnglesLeft />
           </button>
-        ))}
-        <button
-          className="clickbtn"
-          onClick={() => paginationButtonClick(pagination.totalPages)}
-        >
-          <FaAnglesRight />
-        </button>
-      </div>
+          {Array.from(Array(pagination.totalPages), (_, i) => (
+            <button
+              key={i}
+              onClick={() => paginationButtonClick(i + 1)}
+              style={{
+                backgroundColor:
+                  pagination.currentPage === i + 1 ? "#07a4b5" : "#c9c7c7",
+                color: "white",
+                border: "none",
+                padding: "8px 10px",
+                margin: "4px",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            className="clickbtn"
+            onClick={() => paginationButtonClick(pagination.totalPages)}
+          >
+            <FaAnglesRight />
+          </button>
+        </div>
+      )}
     </>
   );
 }
